@@ -15,34 +15,32 @@ class OnBoardingItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
-          child: Column(
-            children: [
-              Image.asset(
-                bodyImage,
-                width: 320,
-                height: 195,
-                fit: BoxFit.contain,
+        Column(
+          children: [
+            Image.asset(
+              bodyImage,
+              width: 320,
+              height: 195,
+              fit: BoxFit.contain,
+            ),
+            Text(
+              titleText,
+              style: GoogleFonts.rockSalt(
+                fontSize: 40,
+                fontWeight: FontWeight.w500,
               ),
-              Text(
-                titleText,
-                style: GoogleFonts.rockSalt(
-                  fontSize: 40,
-                  fontWeight: FontWeight.w500,
-                ),
+            ),
+            const SizedBox(height: 20),
+            Text(
+              'Made by hand, from scratch \n with love',
+              style: GoogleFonts.amiri(
+                color: const Color(0xA53C312F),
+                fontSize: 30,
+                fontWeight: FontWeight.w500,
               ),
-              const SizedBox(height: 20),
-              Text(
-                'Made by hand, from scratch \n with love',
-                style: GoogleFonts.amiri(
-                  color: const Color(0xA53C312F),
-                  fontSize: 30,
-                  fontWeight: FontWeight.w500,
-                ),
-                textAlign: TextAlign.center,
-              ),
-            ],
-          ),
+              textAlign: TextAlign.center,
+            ),
+          ],
         )
       ],
     );

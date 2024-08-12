@@ -77,18 +77,16 @@ class _OnboardViewState extends State<OnboardView> {
                   } else {
                     topPadding = MediaQuery.of(context).size.height / 3;
                   }
-                  return Container(
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.only(top: topPadding),
-                          child: OnBoardingItemWidget(
-                            bodyImage: onboardData[index].bodyImage,
-                            titleText: onboardData[index].title,
-                          ),
+                  return Column(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(top: topPadding),
+                        child: OnBoardingItemWidget(
+                          bodyImage: onboardData[index].bodyImage,
+                          titleText: onboardData[index].title,
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   );
                 },
               ),
