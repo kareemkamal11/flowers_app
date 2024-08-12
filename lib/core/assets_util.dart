@@ -1,6 +1,8 @@
 class AssetsUtil {
-  static const String splashImage = 'assets/splash.png';
+  static const String ad = 'assets/ad.png';
+  static const String arrow = 'assets/arrow.png';
   static const String logoImage = 'assets/logo.png';
+  static const String splashImage = 'assets/splash.png';
 
   static const String oneBoard = 'assets/onboard/background/one_onboard.png';
   static const String twoBoard = 'assets/onboard/background/two_onboard.png';

@@ -65,6 +65,8 @@ flutter:
   assets:
     - assets/splash.png
     - assets/logo.png
+    - assets/ad.png
+    - assets/arrow.png
     - assets/onboard/one_board_body.png
     - assets/onboard/two_board_body.png
     - assets/onboard/three_board_body.png
