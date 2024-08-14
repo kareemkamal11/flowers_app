@@ -1,5 +1,4 @@
 import 'package:go_router/go_router.dart';
-
 import '../view/home/home_screen.dart';
 import '../view/onboard/onboard_view.dart';
 import '../view/splash/splash_veiw.dart';
@@ -24,3 +23,5 @@ class AppRoute {
     ),
   ]);
 }
+
+

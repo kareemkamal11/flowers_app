@@ -154,7 +154,7 @@ class ActionButtonWidget extends StatelessWidget {
             )
           ],
         ),
-        child: Text(title, style: AppStyles.robotoStyle),
+        child: Text(title, style: AppStyles.robotoStyleWhite),
       ),
     );
   }
