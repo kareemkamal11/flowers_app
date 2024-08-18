@@ -1,40 +1,45 @@
-import 'dart:io';
+import 'dart:io'; // يعني استدعاء مكتبة الادخال والاخراج
 
 void main() {
-  final directory = Directory('assets');
-  final pubspecFile = File('pubspec.yaml');
-  final coreDirectory = Directory('lib/core');
-  final assetsUtilFile = File('lib/core/assets_util.dart');
+
+  // Directory و File هما مكتبتان تستخدمان للتعامل مع الملفات والمجلدات في النظام
+
+  final directory = Directory('assets'); // يعني استدعاء المجلد الذي يحتوي على الملفات
+  final pubspecFile = File('pubspec.yaml'); // يعني استدعاء ملف الببسبيك الذي يحتوي على الاعدادات
+  final coreDirectory = Directory('lib/core'); // يعني استدعاء المجلد الذي يحتوي على الملفات الاساسية
+  final assetsUtilFile = File('lib/core/assets_util.dart'); // يعني استدعاء ملف الادخال والاخراج
 
   // Ensure core directory exists
-  if (!coreDirectory.existsSync()) {
-    coreDirectory.createSync(recursive: true);
+  if (!coreDirectory.existsSync()) { // يعني اذا لم يكن المجلد موجود
+    coreDirectory.createSync(recursive: true); // يعني انشاء المجلد
     print('Created core directory');
   }
 
   // Ensure assets_util.dart file exists
-  if (!assetsUtilFile.existsSync()) {
-    assetsUtilFile.writeAsStringSync('class AssetsUtil {\n}\n');
+  if (!assetsUtilFile.existsSync()) { // يعني اذا لم يكن الملف موجود
+    assetsUtilFile.writeAsStringSync('class AssetsUtil {\n}\n'); // يعني انشاء الملف وكتابة النص 
+    // writeAsStringSync يعني كتابة النص في الملف
     print('Created assets_util.dart file');
   }
 
-  if (directory.existsSync() && pubspecFile.existsSync()) {
-    final files = directory.listSync(recursive: true);
-    final paths = <String>[];
+  if (directory.existsSync() && pubspecFile.existsSync()) { // يعني اذا كان المجلد والملف موجودين 
+    final files = directory.listSync(recursive: true); // يعني استدعاء الملفات الموجودة في المجلد
+    // listSync يعني استدعاء قائمة الملفات الموجودة في المجلد recursive: true يعني استدعاء الملفات الموجودة في المجلد الابن
+    final paths = <String>[]; // يعني انشاء قائمة للمسارات في الملفات
 
-    for (var file in files) {
-      if (file is File) {
-        paths.add(file.path.replaceAll('\\', '/'));
+    for (var file in files) { // يعني الدوران على الملفات 
+      if (file is File) { // يعني اذا كان الملف هو ملف 
+        paths.add(file.path.replaceAll('\\', '/')); // يعني اضافة المسار الى قائمة المسارات واستبدال الشرطة المائلة بالشرطة المائلة العكسية
       }
     }
 
-    final pubspecContent = pubspecFile.readAsStringSync();
-    final updatedPubspecContent = updatePubspecContent(pubspecContent, paths);
-    pubspecFile.writeAsStringSync(updatedPubspecContent);
+    final pubspecContent = pubspecFile.readAsStringSync(); // يعني قراءة محتوى الملف 
+    final updatedPubspecContent = updatePubspecContent(pubspecContent, paths); // يعني تحديث محتوى الملف
+    pubspecFile.writeAsStringSync(updatedPubspecContent); // يعني كتابة المحتوى في الملف
 
-    final assetsUtilContent = assetsUtilFile.readAsStringSync();
-    final updatedAssetsUtilContent = updateAssetsUtilContent(assetsUtilContent, paths);
-    assetsUtilFile.writeAsStringSync(updatedAssetsUtilContent);
+    final assetsUtilContent = assetsUtilFile.readAsStringSync(); // يعني قراءة محتوى الملف
+    final updatedAssetsUtilContent = updateAssetsUtilContent(assetsUtilContent, paths); // يعني تحديث محتوى الملف
+    assetsUtilFile.writeAsStringSync(updatedAssetsUtilContent); // يعني كتابة المحتوى في الملف
 
     print('Assets paths have been added to pubspec.yaml and assets_util.dart');
   } else {

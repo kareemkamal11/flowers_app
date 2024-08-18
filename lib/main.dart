@@ -21,7 +21,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       locale: DevicePreview.locale(context),
       builder: DevicePreview.appBuilder,
-      theme: ThemeData.light(),
+      theme: ThemeData(
+        scaffoldBackgroundColor: Colors.white,
+      ),
       darkTheme: ThemeData.dark(),
       routerConfig: AppRoute.routerConfig,
     );

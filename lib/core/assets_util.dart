@@ -4,6 +4,8 @@ class AssetsUtil {
   static const String logoImage = 'assets/logo.png';
   static const String splashImage = 'assets/splash.png';
 
+  static const String vector = 'assets/bestSelling/Vector.png';
+
   static const String donuts = 'assets/homepage/donuts.png';
   static const String milkshake = 'assets/homepage/milkshake.png';
   static const String floreVitamin = 'assets/homepage/flore_vitamin.png';

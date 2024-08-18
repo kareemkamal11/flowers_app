@@ -1,20 +1,21 @@
+import 'package:flowers/core/app_route.dart';
 import 'package:flowers/core/app_styles.dart';
 import 'package:flowers/core/app_text.dart';
 import 'package:flowers/core/widgets/seeall_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
-import '../../widgets/item_selling_widget.dart';
+import '../../static/item_selling_widget.dart';
 
-class BestSellingWidget extends StatefulWidget {
-  const BestSellingWidget({super.key});
+class BestSellingBoxList extends StatefulWidget {
+  const BestSellingBoxList({super.key});
 
   @override
-  State<BestSellingWidget> createState() => _BestSellingWidgetState();
+  State<BestSellingBoxList> createState() => _BestSellingBoxListState();
 }
 
-class _BestSellingWidgetState extends State<BestSellingWidget> {
-
- bool isFavorite = false;
+class _BestSellingBoxListState extends State<BestSellingBoxList> {
+  bool isFavorite = false;
 
   @override
   Widget build(BuildContext context) {
@@ -27,9 +28,11 @@ class _BestSellingWidgetState extends State<BestSellingWidget> {
               style: AppStyles.robotoStyle,
             ),
             const Spacer(),
-            SeeallWidget(onTap: () {
-              print('See all');
-            })
+            SeeallWidget(
+              onTap: () {
+                GoRouter.of(context).push(AppRoute.bestSelling);
+              },
+            )
           ],
         ),
         const SizedBox(height: 15),
@@ -43,7 +46,7 @@ class _BestSellingWidgetState extends State<BestSellingWidget> {
             scrollDirection: Axis.horizontal,
             itemCount: 5,
             itemBuilder: (context, index) {
-              return  ItemSellingWidget(
+              return ItemSellingWidget(
                 favoriteClick: () {
                   setState(() {
                     isFavorite = !isFavorite;
@@ -53,6 +56,9 @@ class _BestSellingWidgetState extends State<BestSellingWidget> {
                   print('Add to cart');
                 },
                 isFavorite: isFavorite,
+                title: AppText.donuts,
+                flavor: 'Chocolate',
+                price: '45.',
               );
             },
           ),
@@ -61,4 +67,3 @@ class _BestSellingWidgetState extends State<BestSellingWidget> {
     );
   }
 }
-

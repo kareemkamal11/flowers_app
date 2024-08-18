@@ -1,13 +1,14 @@
 import 'package:flowers/core/app_styles.dart';
 import 'package:flutter/material.dart';
 
-class HomeSearchWidget extends StatelessWidget {
-  const HomeSearchWidget({
+class AppSearchWidget extends StatelessWidget {
+  const AppSearchWidget({
     super.key,
-    required this.onTap,
+    required this.onTap, required this.hintText,
   });
 
   final Function() onTap;
+  final String hintText;
 
   @override
   Widget build(BuildContext context) {
@@ -21,12 +22,12 @@ class HomeSearchWidget extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
               ),
             ),
-            child: const Padding(
-              padding: EdgeInsets.all(8.0),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
               child: TextField(
                 decoration: InputDecoration(
                   border: InputBorder.none,
-                  hintText: 'search here ..',
+                  hintText: hintText,
                   fillColor: Colors.white,
                 ),
               ),

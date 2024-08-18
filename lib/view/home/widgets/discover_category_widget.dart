@@ -7,7 +7,10 @@ import 'package:flutter/material.dart';
 class DiscoverCategoriesWidget extends StatelessWidget {
   const DiscoverCategoriesWidget({
     super.key,
+    required this.onTap,
   });
+
+  final Function() onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +37,7 @@ class DiscoverCategoriesWidget extends StatelessWidget {
               return Padding(
                 padding: const EdgeInsets.only(top: 15),
                 child: InkWell(
+                  onTap: onTap,
                   child: Column(
                     children: [
                       Container(

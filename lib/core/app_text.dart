@@ -5,8 +5,11 @@ class AppText {
   static const String seeAll = 'See all';
   static const String donuts = 'Donuts';
   static const String flavor = 'Flavor';
-  // const for نوع العملة
   static const String currency = 'LE';
-  
+
   static const String milkshake = 'Milkshake';
+
+  static String searchCategory(String category) {
+    return 'search in $category shake  ..';
+  }
 }
