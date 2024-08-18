@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import '../view/best_selling/best_selling_screen.dart';
 import '../view/home/home_screen.dart';
 import '../view/onboard/onboard_view.dart';
+import '../view/product_details/product_details_screen.dart';
 import '../view/splash/splash_veiw.dart';
 
 class AppRoute {
@@ -11,6 +12,7 @@ class AppRoute {
   static const String home = '/home';
   static const String bestSelling = '/bestSelling';
   static const String categorylist = '/categorylist';
+  static const String productDetails = '/productDetails';
 
   static final routerConfig = GoRouter(routes: [
     GoRoute(
@@ -31,7 +33,11 @@ class AppRoute {
     ),
     GoRoute(
       path: categorylist,
-      builder: (context, state) => const CategoryListScreen()
+      builder: (context, state) => const CategoryListScreen(),
+    ),
+    GoRoute(
+      path: productDetails,
+      builder: (context, state) => const ProductDetailsScreen(),
     )
   ]);
 }

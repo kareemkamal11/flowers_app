@@ -1,8 +1,8 @@
 import 'package:flowers/core/app_text.dart';
 import 'package:flutter/material.dart';
 
-import '../../static/app_search_widget.dart';
-import '../../static/custom_appbar_widget.dart';
+import '../../utils/app_search_widget.dart';
+import '../../utils/custom_appbar_widget.dart';
 import 'category_item_details.dart';
 
 class CategoryListBody extends StatelessWidget {

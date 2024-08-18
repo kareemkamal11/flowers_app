@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 
 import 'widgets/best_selling_box_list.dart';
 import 'widgets/home_appbar_widget.dart';
-import '../static/app_search_widget.dart';
+import '../utils/app_search_widget.dart';
 import 'widgets/homepage_ad_widget.dart';
 import 'widgets/discover_category_widget.dart';
 

@@ -1,11 +1,11 @@
 import 'package:flowers/core/app_route.dart';
 import 'package:flowers/core/app_styles.dart';
 import 'package:flowers/core/app_text.dart';
-import 'package:flowers/core/widgets/seeall_widget.dart';
+import 'package:flowers/view/utils/seeall_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../static/item_selling_widget.dart';
+import '../../utils/item_selling_widget.dart';
 
 class BestSellingBoxList extends StatefulWidget {
   const BestSellingBoxList({super.key});

@@ -1,6 +1,6 @@
 import 'package:flowers/core/app_styles.dart';
 import 'package:flowers/core/assets_util.dart';
-import 'package:flowers/core/widgets/add_cart_widget.dart';
+import 'package:flowers/view/utils/add_cart_widget.dart';
 import 'package:flutter/material.dart';
 
 class CategoryItemDetails extends StatelessWidget {

@@ -1,7 +1,7 @@
 import 'package:flowers/core/app_text.dart';
 import 'package:flutter/material.dart';
 
-import '../../static/item_selling_widget.dart';
+import '../../utils/item_selling_widget.dart';
 
 class BestSellingList extends StatelessWidget {
   const BestSellingList(

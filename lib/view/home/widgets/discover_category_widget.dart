@@ -1,7 +1,7 @@
 import 'package:flowers/core/app_styles.dart';
 import 'package:flowers/core/app_text.dart';
 import 'package:flowers/core/assets_util.dart';
-import 'package:flowers/core/widgets/seeall_widget.dart';
+import 'package:flowers/view/utils/seeall_widget.dart';
 import 'package:flutter/material.dart';
 
 class DiscoverCategoriesWidget extends StatelessWidget {

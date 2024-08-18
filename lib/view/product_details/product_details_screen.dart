@@ -2,7 +2,7 @@ import 'package:flowers/core/app_styles.dart';
 import 'package:flowers/core/assets_util.dart';
 import 'package:flutter/material.dart';
 
-import '../static/custom_appbar_widget.dart';
+import '../utils/custom_appbar_widget.dart';
 
 class ProductDetailsScreen extends StatelessWidget {
   const ProductDetailsScreen({super.key});

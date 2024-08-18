@@ -2,7 +2,7 @@ import 'package:flowers/core/app_styles.dart';
 import 'package:flowers/core/assets_util.dart';
 import 'package:flutter/material.dart';
 
-import '../../core/widgets/add_cart_widget.dart';
+import 'add_cart_widget.dart';
 
 class ItemSellingWidget extends StatelessWidget {
   const ItemSellingWidget({
