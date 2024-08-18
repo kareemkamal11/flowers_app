@@ -26,7 +26,6 @@ class BestSellingList extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
           child: ItemSellingWidget(
             favoriteClick: favoriteClick,
-            addCartClick: addCartClick,
             isFavorite: isFavorite,
             title: AppText.donuts,
             flavor: 'Chocolate',

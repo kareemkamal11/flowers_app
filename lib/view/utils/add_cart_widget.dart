@@ -1,14 +1,14 @@
 
+import 'package:flowers/core/app_route.dart';
 import 'package:flowers/core/app_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class AddCartWidget extends StatelessWidget {
   const AddCartWidget({
     super.key,
-    required this.addCartClick,
   });
 
-  final Function() addCartClick;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,9 @@ class AddCartWidget extends StatelessWidget {
       bottom: 0,
       right: 0,
       child: InkWell(
-        onTap: addCartClick,
+        onTap: () {
+          GoRouter.of(context).push(AppRoute.productDetails);
+        },
         splashColor: Colors.transparent,
         child: Container(
           width: 35,

@@ -52,9 +52,6 @@ class _BestSellingBoxListState extends State<BestSellingBoxList> {
                     isFavorite = !isFavorite;
                   });
                 },
-                addCartClick: () {
-                  print('Add to cart');
-                },
                 isFavorite: isFavorite,
                 title: AppText.donuts,
                 flavor: 'Chocolate',

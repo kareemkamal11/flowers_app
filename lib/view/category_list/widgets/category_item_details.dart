@@ -1,4 +1,5 @@
 import 'package:flowers/core/app_styles.dart';
+import 'package:flowers/core/app_text.dart';
 import 'package:flowers/core/assets_util.dart';
 import 'package:flowers/view/utils/add_cart_widget.dart';
 import 'package:flutter/material.dart';
@@ -27,8 +28,8 @@ class CategoryItemDetails extends StatelessWidget {
             end: const Alignment(1.00, 0.03),
             begin: const Alignment(-1, -0.03),
             colors: [
-              AppStyles.cardColor.withOpacity(0.8),
-              AppStyles.cardColor.withOpacity(0.3)
+              AppStyles.secondaryColor.withOpacity(0.8),
+              AppStyles.secondaryColor.withOpacity(0.3)
             ],
           ),
           shape: RoundedRectangleBorder(
@@ -69,7 +70,7 @@ class CategoryItemDetails extends StatelessWidget {
                         Align(
                           alignment: Alignment.bottomLeft,
                           child: Text(
-                            '$price LE',
+                            '$price ${AppText.currency}',
                             style: AppStyles.robotoStyle.copyWith(
                               fontSize: 16,
                               fontWeight: FontWeight.w500,
@@ -88,9 +89,7 @@ class CategoryItemDetails extends StatelessWidget {
                 ],
               ),
             ),
-            AddCartWidget(
-              addCartClick: () {},
-            )
+            const AddCartWidget()
           ],
         ),
       ),

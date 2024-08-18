@@ -1,4 +1,5 @@
 import 'package:flowers/core/app_styles.dart';
+import 'package:flowers/core/app_text.dart';
 import 'package:flowers/core/assets_util.dart';
 import 'package:flutter/material.dart';
 
@@ -8,7 +9,6 @@ class ItemSellingWidget extends StatelessWidget {
   const ItemSellingWidget({
     super.key,
     required this.favoriteClick,
-    required this.addCartClick,
     required this.isFavorite,
     required this.title,
     required this.flavor,
@@ -17,7 +17,6 @@ class ItemSellingWidget extends StatelessWidget {
 
   final Function() favoriteClick;
 
-  final Function() addCartClick;
 
   final bool isFavorite;
 
@@ -80,7 +79,7 @@ class ItemSellingWidget extends StatelessWidget {
                 ),
                 const SizedBox(height: 5),
                 Text(
-                  '$price LE',
+                  '$price ${AppText.currency}',
                   style: AppStyles.robotoStyle.copyWith(
                     fontSize: 16,
                     fontWeight: FontWeight.w700,
@@ -110,9 +109,7 @@ class ItemSellingWidget extends StatelessWidget {
               ),
             ),
           ),
-          AddCartWidget(
-            addCartClick: addCartClick,
-          )
+          const AddCartWidget()
         ],
       ),
     );

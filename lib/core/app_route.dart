@@ -1,4 +1,6 @@
 import 'package:flowers/view/category_list/category_list_screen.dart';
+import 'package:flowers/view_models/product_details/counter_cubit.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import '../view/best_selling/best_selling_screen.dart';
 import '../view/home/home_screen.dart';
@@ -36,8 +38,10 @@ class AppRoute {
       builder: (context, state) => const CategoryListScreen(),
     ),
     GoRoute(
-      path: productDetails,
-      builder: (context, state) => const ProductDetailsScreen(),
-    )
+        path: productDetails,
+        builder: (context, state) => BlocProvider(
+              create: (context) => CounterCubit(),
+              child: const ProductDetailsScreen(),
+            ))
   ]);
 }

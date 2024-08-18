@@ -20,7 +20,7 @@ class CategoryListBody extends StatelessWidget {
                 title: 'Milk Shake',
                 customWidget: AppSearchWidget(
                   onTap: () {},
-                  hintText: AppText.searchCategory('Milk Shake'),
+                  hintText: AppText.hintSearchCategory('Milk Shake'),
                 ),
               ),
               const SizedBox(height: 30),

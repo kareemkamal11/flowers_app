@@ -1,114 +1,45 @@
 import 'package:flowers/core/app_styles.dart';
-import 'package:flowers/core/assets_util.dart';
+import 'package:flowers/view_models/product_details/counter_cubit.dart';
+import 'package:flowers/view_models/product_details/counter_state.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../utils/custom_appbar_widget.dart';
+import 'widgets/product_details_appbar.dart';
+import 'widgets/product_details_buy_widget.dart';
 
-class ProductDetailsScreen extends StatelessWidget {
+class ProductDetailsScreen extends StatefulWidget {
   const ProductDetailsScreen({super.key});
 
   @override
+  State<ProductDetailsScreen> createState() => _ProductDetailsScreenState();
+}
+
+class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
+  @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Column(
-          children: [
-            Container(
-              width: double.infinity,
-              color: AppStyles.secondaryColor,
-              child: Stack(
-                children: [
-                  const CustomAppBarWidget(
-                    title: ' ',
-                  ),
-                  Image.asset(
-                    AssetsUtil.milkshake,
-                    width: 109,
-                    height: 221,
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              width: double.infinity,
-              color: Colors.white,
-              decoration: const BoxDecoration(
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(35),
-                  topRight: Radius.circular(35),
+    final screenHeight = MediaQuery.of(context).size.height;
+
+    return BlocBuilder<CounterCubit, CounterState>(
+      builder: (context, state) {
+        final productsCubit = BlocProvider.of<CounterCubit>(context);
+        return Scaffold(
+          backgroundColor: AppStyles.secondaryColor,
+          body: SingleChildScrollView(
+            child: Column(
+              children: [
+                ProductDetailsAppBar(
+                  screenHeight: screenHeight,
                 ),
-              ),
-              // add child and add Column to content Row and insid this Row add two text widget
-              // and in the column add text widget for subtitle and Divider and counter to add or remove values number
-              child: Column(
-                children: [
-                  Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'Milkshake',
-                          style: AppStyles.pangolinStyle,
-                        ),
-                        Text(
-                          'Strawberry',
-                          style: AppStyles.robotoStyle,
-                        ),
-                      ]),
-                  Column(
-                    children: [
-                      Text(
-                        '\$ 5.00',
-                        style: AppStyles.robotoStyle,
-                      ),
-                      Divider(
-                        color: AppStyles.mainColor,
-                      ),
-                      Row(
-                        children: [
-                          Container(
-                            width: 30,
-                            height: 30,
-                            decoration: BoxDecoration(
-                              color: AppStyles.secondaryColor,
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: Icon(
-                              Icons.remove,
-                              color: AppStyles.mainColor,
-                            ),
-                          ),
-                          const SizedBox(
-                            width: 10,
-                          ),
-                          Text(
-                            '1',
-                            style: AppStyles.robotoStyle,
-                          ),
-                          const SizedBox(
-                            width: 10,
-                          ),
-                          Container(
-                            width: 30,
-                            height: 30,
-                            decoration: BoxDecoration(
-                              color: AppStyles.secondaryColor,
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: Icon(
-                              Icons.add,
-                              color: AppStyles.mainColor,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+                ProductDetailsBuyWidget(
+                  screenHeight: screenHeight,
+                  productsCubit: productsCubit,
+                )
+              ],
             ),
-          ],
-        ),
-      ),
+          ),
+        );
+      },
     );
   }
 }
+

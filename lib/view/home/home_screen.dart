@@ -1,4 +1,5 @@
 import 'package:flowers/core/app_route.dart';
+import 'package:flowers/core/app_text.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -24,7 +25,7 @@ class HomeScreen extends StatelessWidget {
                 const HomePageAdWidget(),
                 AppSearchWidget(
                   onTap: () {},
-                  hintText: 'search here  ..',
+                  hintText: AppText.hintSearch,
                 ),
                 const SizedBox(height: 25),
                 DiscoverCategoriesWidget(

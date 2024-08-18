@@ -75,7 +75,7 @@ class _OnboardViewState extends State<OnboardView> {
                   if (onboardData[index].title == 'Milkshake') {
                     topPadding = 240;
                   } else {
-                    topPadding = MediaQuery.of(context).size.height / 3;
+                    topPadding = MediaQuery.of(context).size.height / 4;
                   }
                   return Column(
                     children: [

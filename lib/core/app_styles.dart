@@ -6,7 +6,9 @@ class AppStyles {
   static Color secondaryColor = const Color(0xFFF7CCC6);
   static Color boxColor = const Color(0x3FF7CCC6);
   static Color seeallColor = const Color(0xFFD1A39C);
-  static Color cardColor = const Color(0xFFF7CCC6);
+  static Color hintColor = const Color(0xA53C312F);
+
+  static Color lightShow = const Color(0xFFFDF0EE);
 
   static TextStyle robotoStyle = GoogleFonts.roboto(
     color: mainColor,
