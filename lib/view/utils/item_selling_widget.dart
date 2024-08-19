@@ -30,11 +30,11 @@ class ItemSellingWidget extends StatelessWidget {
       width: 190,
       height: 200,
       decoration: ShapeDecoration(
-        gradient: const LinearGradient(
-          colors: [Colors.white, Color(0xFFF7CCC6)],
+        gradient: LinearGradient(
+          colors: [Colors.white, AppStyles.cardColor],
           begin: Alignment.bottomCenter,
           end: Alignment.topCenter,
-          stops: [0.55, 0.45],
+          stops: const [0.55, 0.45],
         ),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),

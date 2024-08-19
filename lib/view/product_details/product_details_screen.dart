@@ -1,6 +1,6 @@
 import 'package:flowers/core/app_styles.dart';
-import 'package:flowers/view_models/product_details/counter_cubit.dart';
-import 'package:flowers/view_models/product_details/counter_state.dart';
+import 'package:flowers/view_models/product_details_cubit/counter_cubit.dart';
+import 'package:flowers/view_models/product_details_cubit/counter_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

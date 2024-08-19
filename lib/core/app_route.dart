@@ -1,8 +1,11 @@
 import 'package:flowers/view/category_list/category_list_screen.dart';
-import 'package:flowers/view_models/product_details/counter_cubit.dart';
+import 'package:flowers/view_models/product_details_cubit/counter_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+
 import '../view/best_selling/best_selling_screen.dart';
+import '../view/cart/cart_screen.dart';
+import '../view/cart/order_confirm_screen.dart';
 import '../view/home/home_screen.dart';
 import '../view/onboard/onboard_view.dart';
 import '../view/product_details/product_details_screen.dart';
@@ -15,6 +18,8 @@ class AppRoute {
   static const String bestSelling = '/bestSelling';
   static const String categorylist = '/categorylist';
   static const String productDetails = '/productDetails';
+  static const String cart = '/cart';
+  static const String confirmOrder = '/confirmOrder';
 
   static final routerConfig = GoRouter(routes: [
     GoRoute(
@@ -38,10 +43,18 @@ class AppRoute {
       builder: (context, state) => const CategoryListScreen(),
     ),
     GoRoute(
-        path: productDetails,
-        builder: (context, state) => BlocProvider(
-              create: (context) => CounterCubit(),
-              child: const ProductDetailsScreen(),
-            ))
+      path: productDetails,
+      builder: (context, state) => BlocProvider(
+        create: (context) => CounterCubit(),
+        child: const ProductDetailsScreen(),
+      ),
+    ),
+    GoRoute(
+      path: cart,
+      builder: (context, state) => const CartScreen(),
+    ),
+    GoRoute(
+        path: confirmOrder,
+        builder: (context, state) => const OrderConfirmScreen()),
   ]);
 }

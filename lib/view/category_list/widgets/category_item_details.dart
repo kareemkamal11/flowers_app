@@ -23,20 +23,7 @@ class CategoryItemDetails extends StatelessWidget {
       child: Container(
         width: 329,
         height: 120,
-        decoration: ShapeDecoration(
-          gradient: LinearGradient(
-            end: const Alignment(1.00, 0.03),
-            begin: const Alignment(-1, -0.03),
-            colors: [
-              AppStyles.secondaryColor.withOpacity(0.8),
-              AppStyles.secondaryColor.withOpacity(0.3)
-            ],
-          ),
-          shape: RoundedRectangleBorder(
-            side: const BorderSide(width: 0.60, color: Color(0xFFF7CCC6)),
-            borderRadius: BorderRadius.circular(20),
-          ),
-        ),
+        decoration: AppStyles.boxDecoration,
         child: Stack(
           children: [
             Padding(

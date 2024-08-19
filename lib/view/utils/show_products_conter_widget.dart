@@ -20,9 +20,13 @@ class ShowProductsConter extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
       clipBehavior: Clip.antiAlias,
       decoration: ShapeDecoration(
-        color: AppStyles.lightShow,
+        color: AppStyles.cardColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15),
+          side: BorderSide(
+            width: .50,
+            color: AppStyles.mainColor,
+          ),
         ),
       ),
       child: Row(
@@ -47,4 +51,3 @@ class ShowProductsConter extends StatelessWidget {
     );
   }
 }
-

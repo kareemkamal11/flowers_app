@@ -2,6 +2,9 @@ class AssetsUtil {
   static const String ad = 'assets/homepage/ad.png';
   static const String arrow = 'assets/homepage/arrow.png';
 
+  static const String orderConfirm = 'assets/confirm.png';
+  static const String confirmBackground = 'assets/confirmBackground.png';
+
   static const String productDetails = 'assets/product_details.png';
   static const String logoImage = 'assets/logo.png';
   static const String splashImage = 'assets/splash.png';

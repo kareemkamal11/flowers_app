@@ -34,7 +34,10 @@ class CustomAppBarWidget extends StatelessWidget {
                       GoRouter.of(context).pop(); //
                     },
                   ),
-                  Text(title, style: AppStyles.allertaStencil),
+                  Text(title, style: AppStyles.robotoStyle.copyWith(
+                    fontSize: 25,
+                    
+                  )),
                   Image.asset(AssetsUtil.vector, width: 30),
                 ],
               ),
@@ -43,9 +46,9 @@ class CustomAppBarWidget extends StatelessWidget {
             ],
           ),
         ),
-        Divider(
+        Container(
           color: AppStyles.secondaryColor,
-          thickness: 3,
+          height: 2,
         ),
       ],
     );

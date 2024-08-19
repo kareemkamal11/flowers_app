@@ -39,6 +39,43 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
         ),
+        drawer: Drawer(
+          child: ListView(
+            children: [
+              ListTile(
+                title: const Text(AppText.home),
+                onTap: () {
+                  GoRouter.of(context).pop();
+                },
+              ),
+              ListTile(
+                title: const Text(AppText.categorylist),
+                onTap: () {
+                  GoRouter.of(context).push(AppRoute.categorylist);
+                },
+              ),
+              ListTile(
+                title: const Text(AppText.cart),
+                onTap: () {
+                  GoRouter.of(context).push(AppRoute.cart);
+                },
+              ),
+              // product details
+              ListTile(
+                title: const Text(AppText.productDetails),
+                onTap: () {
+                  GoRouter.of(context).push(AppRoute.productDetails);
+                },
+              ),
+              ListTile(
+                title: const Text(AppText.confirmOrder),
+                onTap: () {
+                  GoRouter.of(context).push(AppRoute.confirmOrder);
+                },
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

@@ -7,8 +7,8 @@ class AppStyles {
   static Color boxColor = const Color(0x3FF7CCC6);
   static Color seeallColor = const Color(0xFFD1A39C);
   static Color hintColor = const Color(0xA53C312F);
-
-  static Color lightShow = const Color(0xFFFDF0EE);
+  static Color pinkColor = const Color(0xFFFF7474);
+  static Color cardColor = const Color(0xFFFDF0EE);
 
   static TextStyle robotoStyle = GoogleFonts.roboto(
     color: mainColor,
@@ -38,5 +38,20 @@ class AppStyles {
     color: Colors.black,
     fontSize: 20,
     fontWeight: FontWeight.w500,
+  );
+
+  static ShapeDecoration boxDecoration = ShapeDecoration(
+    gradient: LinearGradient(
+      end: const Alignment(1.00, 0.03),
+      begin: const Alignment(-1, -0.03),
+      colors: [
+        AppStyles.cardColor.withOpacity(0.8),
+        AppStyles.cardColor.withOpacity(0.1)
+      ],
+    ),
+    shape: RoundedRectangleBorder(
+      side:  BorderSide(width: 1, color: AppStyles.secondaryColor),
+      borderRadius: BorderRadius.circular(20),
+    ),
   );
 }

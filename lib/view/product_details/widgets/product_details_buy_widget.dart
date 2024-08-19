@@ -1,11 +1,13 @@
+import 'package:flowers/core/app_route.dart';
 import 'package:flowers/core/app_styles.dart';
 import 'package:flowers/core/app_text.dart';
-import 'package:flowers/view_models/product_details/counter_cubit.dart';
+import 'package:flowers/view_models/product_details_cubit/counter_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
-import '../../utils/custom_button_widget.dart';
+import '../../utils/buy_product_widgets.dart';
 import '../../utils/products_conter_widget.dart';
-import '../../utils/show_products_conter_widget.dart';
+import 'product_info_details_widget.dart';
 
 class ProductDetailsBuyWidget extends StatelessWidget {
   const ProductDetailsBuyWidget({
@@ -34,35 +36,7 @@ class ProductDetailsBuyWidget extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'Oreo Milkshake',
-                style: AppStyles.pangolinStyle.copyWith(
-                  fontSize: 25,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-              Text(
-                '45. ${AppText.currency}',
-                style: AppStyles.robotoStyle.copyWith(
-                  fontSize: 25,
-                  fontWeight: FontWeight.w600,
-                ),
-              )
-            ],
-          ),
-          const SizedBox(height: 15),
-          Text(
-            'There are many variations of passages of Lorem Ipsum available, he majority have There are many  variations of passages of Lorem Ipsum available,  he majority have',
-            style: AppStyles.robotoStyle.copyWith(
-              fontSize: 18,
-              color: AppStyles.hintColor,
-              fontWeight: FontWeight.w300,
-            ),
-          ),
-          const SizedBox(height: 10),
+          const ProductInfoDetailsWidget(),
           Container(
             height: 2,
             color: AppStyles.secondaryColor,
@@ -74,15 +48,14 @@ class ProductDetailsBuyWidget extends StatelessWidget {
             removeProduct: productsCubit.removeProduct,
           ),
           const SizedBox(height: 80),
-          ShowProductsConter(
+          BuyProductWidgets(
+            onPressed: (){
+              GoRouter.of(context).push(AppRoute.cart);
+            },
             totalProducts: productsCubit.products,
             totalPrice: productsCubit.products,
-          ),
-          const SizedBox(height: 30),
-          CustomButtonWidget(
-            title: AppText.addtoCart,
-            onPressed: () {},
-          )
+            titleButton: AppText.addtoCart,
+           )
         ],
       ),
     );
