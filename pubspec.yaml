@@ -73,7 +73,7 @@ flutter:
     - assets/homepage/flore_vitamin.png
     - assets/homepage/milkshake.png
     - assets/homepage/donuts.png
-    - assets/bestSelling/Vector.png
+    - assets/Vector.png
     - assets/logo.png
     - assets/onboard/background/one_onboard.png
     - assets/onboard/background/three_onboard.png
@@ -83,13 +83,39 @@ flutter:
     - assets/onboard/two_board_body.png
     - assets/splash.png
     - assets/product_details.png
+    - assets/cofe/Café Bombón.png
+    - assets/cofe/Café con Leche.png
+    - assets/cofe/Café Cortado.png
+    - assets/cofe/Café Cubano.png
+    - assets/cofe/Macchiato.png
+    - assets/cofe/Mocha.png
+    - assets/cofe/Ristretto.png
+    - assets/brownimage/Americano.png
+    - assets/brownimage/Corretto.png
+    - assets/brownimage/Espresso.png
+    - assets/brownimage/Espresso Romano.png
+    - assets/brownimage/Galao.png
+    - assets/brownimage/Latte.png
+    - assets/brownimage/Lungo.png
+    - assets/brownimage/Macchiato.png
+    - assets/food/Cake.png
+    - assets/food/Donut.png
+    - assets/food/FriedEggs.png
+    - assets/food/Muffin.png
+    - assets/food/Pasta.png
+    - assets/food/Pizza.png
+    - assets/food/Salad.png
+    - assets/food/Sandwich.png
+    - assets/food/Soup.png
+    - assets/food/Sushi.png
+    - assets/food/Pasta.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
-  # https://flutter.dev/assets-and-images/#resolution-aware
+  # https://flutter.dev/assets-and/#resolution-aware
 
   # For details regarding adding assets from package dependencies, see
-  # https://flutter.dev/assets-and-images/#from-packages
+  # https://flutter.dev/assets-and/#from-packages
 
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a
