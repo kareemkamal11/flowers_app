@@ -1,7 +1,8 @@
-import 'package:flowers/core/app_route.dart';
+// ignore_for_file: use_build_context_synchronously
+
+import 'package:flowers/core/navigation_app.dart';
 import 'package:flowers/core/assets_util.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SplashView extends StatefulWidget {
@@ -13,19 +14,22 @@ class SplashView extends StatefulWidget {
 
 class _SplashViewState extends State<SplashView> {
   @override
+
   void initState() {
     super.initState();
     Future.delayed(const Duration(seconds: 2), () {
       SharedPreferences.getInstance().then((prefs) {
         final bool isOnboard = prefs.getBool('onboard') ?? false;
         if (isOnboard) {
-          GoRouter.of(context).go(AppRoute.home);
+          Navigator.of(context).pushReplacement(AppNavigator.homeScreen());
         } else {
-          GoRouter.of(context).go(AppRoute.onboarding);
+          Navigator.of(context).pushReplacement(AppNavigator.onBoarding());
         }
       });
     });
   }
+
+
 
   @override
   Widget build(BuildContext context) {

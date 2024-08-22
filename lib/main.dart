@@ -1,5 +1,5 @@
 import 'package:device_preview/device_preview.dart';
-import 'package:flowers/core/app_route.dart';
+import 'package:flowers/view/splash/splash_veiw.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
+    return MaterialApp(
       // ignore: deprecated_member_use
       useInheritedMediaQuery: true,
       debugShowCheckedModeBanner: false,
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.white,
       ),
       darkTheme: ThemeData.dark(),
-      routerConfig: AppRoute.routerConfig,
+      home: const SplashView(),
     );
   }
 }

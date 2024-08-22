@@ -1,4 +1,4 @@
-import 'package:flowers/core/app_route.dart';
+import 'package:flowers/core/navigation_app.dart';
 import 'package:flowers/core/app_text.dart';
 import 'package:flowers/view/utils/buy_product_widgets.dart';
 import 'package:flowers/view/utils/custom_appbar_widget.dart';
@@ -42,7 +42,7 @@ class CartScreen extends StatelessWidget {
               right: 20,
               child: BuyProductWidgets(
                 onPressed: () {
-                  GoRouter.of(context).push(AppRoute.confirmOrder);
+                  context.push(AppNavigator.checkoutScreen());
                 },
                 totalProducts: 0,
                 totalPrice: 0,

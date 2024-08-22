@@ -1,6 +1,5 @@
 import 'package:flowers/core/app_styles.dart';
 import 'package:flowers/core/app_text.dart';
-import 'package:flowers/core/assets_util.dart';
 import 'package:flowers/view/utils/add_cart_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -10,11 +9,13 @@ class CategoryItemDetails extends StatelessWidget {
     required this.title,
     required this.description,
     required this.price,
+    required this.image,
   });
 
   final String title;
   final String description;
-  final String price;
+  final double price;
+  final String image;
 
   @override
   Widget build(BuildContext context) {
@@ -70,7 +71,7 @@ class CategoryItemDetails extends StatelessWidget {
                   Expanded(
                     flex: 1,
                     child: Image.asset(
-                      AssetsUtil.milkshake,
+                      image,
                     ),
                   )
                 ],

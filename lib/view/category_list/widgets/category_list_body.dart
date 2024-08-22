@@ -1,4 +1,5 @@
 import 'package:flowers/core/app_text.dart';
+import 'package:flowers/model/category/category_details_model.dart';
 import 'package:flutter/material.dart';
 
 import '../../utils/app_search_widget.dart';
@@ -6,10 +7,15 @@ import '../../utils/custom_appbar_widget.dart';
 import 'category_item_details.dart';
 
 class CategoryListBody extends StatelessWidget {
-  const CategoryListBody({super.key});
+  const CategoryListBody({
+    super.key,
+    
+  });
 
   @override
   Widget build(BuildContext context) {
+    String title = 'Category List';
+    List<ItemModel> listItems = [];
     return CustomScrollView(
       physics: const BouncingScrollPhysics(),
       slivers: [
@@ -17,10 +23,10 @@ class CategoryListBody extends StatelessWidget {
           child: Column(
             children: [
               CustomAppBarWidget(
-                title: 'Milk Shake',
+                title: title,
                 customWidget: AppSearchWidget(
                   onTap: () {},
-                  hintText: AppText.hintSearchCategory('Milk Shake'),
+                  hintText: AppText.hintSearchCategory(title),
                 ),
               ),
               const SizedBox(height: 30),
@@ -30,11 +36,11 @@ class CategoryListBody extends StatelessWidget {
         SliverList.builder(
           itemCount: 10,
           itemBuilder: (context, index) {
-            return const CategoryItemDetails(
-              title: 'Oreo Milkshake',
-              description:
-                  'There are many variations of passages of Lorem Ipsum',
-              price: '45.',
+            return CategoryItemDetails(
+              title: listItems[index].name,
+              image: listItems[index].image,
+              description: listItems[index].description,
+              price: listItems[index].price,
             );
           },
         ),

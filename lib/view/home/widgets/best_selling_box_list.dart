@@ -1,4 +1,4 @@
-import 'package:flowers/core/app_route.dart';
+import 'package:flowers/core/navigation_app.dart';
 import 'package:flowers/core/app_styles.dart';
 import 'package:flowers/core/app_text.dart';
 import 'package:flowers/view/utils/seeall_widget.dart';
@@ -30,7 +30,7 @@ class _BestSellingBoxListState extends State<BestSellingBoxList> {
             const Spacer(),
             SeeallWidget(
               onTap: () {
-                GoRouter.of(context).push(AppRoute.bestSelling);
+                context.push(AppNavigator.bestSelling());
               },
             )
           ],

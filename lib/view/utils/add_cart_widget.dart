@@ -1,5 +1,5 @@
 
-import 'package:flowers/core/app_route.dart';
+import 'package:flowers/core/navigation_app.dart';
 import 'package:flowers/core/app_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -17,7 +17,7 @@ class AddCartWidget extends StatelessWidget {
       right: 0,
       child: InkWell(
         onTap: () {
-          GoRouter.of(context).push(AppRoute.productDetails);
+          context.push(AppNavigator.cartScreen()); 
         },
         splashColor: Colors.transparent,
         child: Container(

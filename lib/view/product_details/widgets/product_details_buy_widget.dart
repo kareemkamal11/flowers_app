@@ -1,4 +1,4 @@
-import 'package:flowers/core/app_route.dart';
+import 'package:flowers/core/navigation_app.dart';
 import 'package:flowers/core/app_styles.dart';
 import 'package:flowers/core/app_text.dart';
 import 'package:flowers/view_models/product_details_cubit/counter_cubit.dart';
@@ -50,7 +50,7 @@ class ProductDetailsBuyWidget extends StatelessWidget {
           const SizedBox(height: 80),
           BuyProductWidgets(
             onPressed: (){
-              GoRouter.of(context).push(AppRoute.cart);
+              context.push(AppNavigator.cartScreen());
             },
             totalProducts: productsCubit.products,
             totalPrice: productsCubit.products,

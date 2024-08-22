@@ -17,45 +17,6 @@ class AppText {
   static const String confirmOrder = 'Order confirmed successfully';
   static const String backHome = 'Back to home';
 
-  static const String milkshake = 'Milkshake';
-  static const String addtoCart = 'Add to cart';
-
-  static String hintSearchCategory(String category) {
-    return 'search in $category shake  ..';
-  }
-}
-
-
-  /*
-    - assets/images/cofe/Café Bombón.png
-  - assets/images/cofe/Café con Leche.png
-  - assets/images/cofe/Café Cortado.png
-  - assets/images/cofe/Café Cubano.png
-  - assets/images/cofe/Macchiato.png
-  - assets/images/cofe/Mocha.png
-  - assets/images/cofe/Ristretto.png
-  - assets/images/brownimage/Americano.png
-  - assets/images/brownimage/Corretto.png
-  - assets/images/brownimage/Espresso.png
-  - assets/images/brownimage/Espresso Romano.png
-  - assets/images/brownimage/Galao.png
-  - assets/images/brownimage/Latte.png
-  - assets/images/brownimage/Lungo.png
-  - assets/images/brownimage/Macchiato.png
-  - assets/images/food/Cake.png
-  - assets/images/food/Donut.png
-  - assets/images/food/FriedEggs.png
-  - assets/images/food/Muffin.png
-  - assets/images/food/Pasta.png
-  - assets/images/food/Pizza.png
-  - assets/images/food/Salad.png
-  - assets/images/food/Sandwich.png
-  - assets/images/food/Soup.png
-  - assets/images/food/Sushi.png
-  - assets/images/food/Pasta.png
-   */
-
-class AppTextData{
   static const String cafeBombon = 'Café Bombón';
   static const String cafeConLeche = 'Café con Leche';
   static const String cafeCortado = 'Café Cortado';
@@ -80,4 +41,18 @@ class AppTextData{
   static const String sandwich = 'Sandwich';
   static const String soup = 'Soup';
   static const String sushi = 'Sushi';
+
+  static const String noMoreCategory = 'no more category to see ';
+
+  static const String foodText = "Food";
+
+  static const String milkshake = 'Milkshake';
+  static const String addtoCart = 'Add to cart';
+
+  static String hintSearchCategory(String category) {
+    return 'search in $category shake  ..';
+  }
+
+  static const String describtionText =
+      "There are many variations of passages of Lorem Ipsum available, he majority have There are many variations of passages of Lorem Ipsum available, he majority have";
 }

@@ -1,21 +1,20 @@
-import 'package:flowers/core/app_route.dart';
 import 'package:flowers/core/app_styles.dart';
+import 'package:flowers/core/navigation_app.dart';
 import 'package:flowers/model/onboard_model.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import 'widgets/onboard_body.dart';
 
-class OnboardView extends StatefulWidget {
-  const OnboardView({super.key});
+class OnboardingScreen extends StatefulWidget {
+  const OnboardingScreen({super.key});
 
   @override
-  State<OnboardView> createState() => _OnboardViewState();
+  State<OnboardingScreen> createState() => _OnboardingScreenState();
 }
 
-class _OnboardViewState extends State<OnboardView> {
+class _OnboardingScreenState extends State<OnboardingScreen> {
   late PageController pageController;
   int currentIndex = 0;
 
@@ -41,7 +40,7 @@ class _OnboardViewState extends State<OnboardView> {
         currentIndex++;
       });
     } else {
-      GoRouter.of(context).pushReplacement(AppRoute.home);
+      Navigator.of(context).pushReplacementNamed(AppNavigator.homeScreen());
       SharedPreferences.getInstance().then((prefs) {
         prefs.setBool('onboard', true);
       });

@@ -109,6 +109,11 @@ flutter:
     - assets/food/Soup.png
     - assets/food/Sushi.png
     - assets/food/Pasta.png
+    - assets/image/Vanilla Milkshake.png
+    - assets/image/Chocolate Milkshake.png
+    - assets/image/Mango Milkshake.png
+    - assets/image/Oreo Milkshake.png
+
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -139,5 +144,3 @@ flutter:
 
 
 
-
-    - assets/homepage/donuts.png

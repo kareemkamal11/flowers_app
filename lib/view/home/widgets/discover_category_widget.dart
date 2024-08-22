@@ -1,16 +1,16 @@
 import 'package:flowers/core/app_styles.dart';
 import 'package:flowers/core/app_text.dart';
-import 'package:flowers/core/assets_util.dart';
+import 'package:flowers/model/category/discovery_category/discovery_category_model.dart';
 import 'package:flowers/view/utils/seeall_widget.dart';
 import 'package:flutter/material.dart';
 
 class DiscoverCategoriesWidget extends StatelessWidget {
   const DiscoverCategoriesWidget({
     super.key,
-    required this.onTap,
+    required this.listDiscoveryCategory,
   });
 
-  final Function() onTap;
+  final List<DiscoveryCategoryModel> listDiscoveryCategory;
 
   @override
   Widget build(BuildContext context) {
@@ -18,17 +18,36 @@ class DiscoverCategoriesWidget extends StatelessWidget {
       children: [
         Row(
           children: [
-            Text(
-              AppText.discover,
-              style: AppStyles.robotoStyle
-            ),
+            Text(AppText.discover, style: AppStyles.robotoStyle),
             const Spacer(),
-            SeeallWidget(onTap: (){})
+            SeeallWidget(onTap: () {
+              showDialog(
+                context: context,
+                builder: (context) {
+                  return AlertDialog(
+                    backgroundColor: AppStyles.secondaryColor.withOpacity(0.8),
+                    content: Container(
+                      height: 80,
+                      width: 250,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Text(
+                        AppText.noMoreCategory,
+                        style: AppStyles.pangolinStyle,
+                      ),
+                    ),
+                  );
+                },
+              );
+            })
           ],
         ),
         Container(
           height: 120,
           child: ListView.separated(
+            itemCount: listDiscoveryCategory.length,
             scrollDirection: Axis.horizontal,
             separatorBuilder: (context, index) {
               return const SizedBox(width: 30);
@@ -37,7 +56,9 @@ class DiscoverCategoriesWidget extends StatelessWidget {
               return Padding(
                 padding: const EdgeInsets.only(top: 15),
                 child: InkWell(
-                  onTap: onTap,
+                  onTap: () {
+                    
+                  },
                   child: Column(
                     children: [
                       Container(
@@ -52,13 +73,13 @@ class DiscoverCategoriesWidget extends StatelessWidget {
                           shape: OvalBorder(),
                         ),
                         child: Image.asset(
-                          AssetsUtil.milkshake,
+                          listDiscoveryCategory[index].image,
                           fit: BoxFit.cover,
                         ),
                       ),
                       const SizedBox(height: 5),
                       Text(
-                        AppText.milkshake,
+                        listDiscoveryCategory[index].name,
                         style: AppStyles.robotoStyle.copyWith(
                           color: AppStyles.mainColor,
                           fontSize: 16,
@@ -70,7 +91,6 @@ class DiscoverCategoriesWidget extends StatelessWidget {
                 ),
               );
             },
-            itemCount: 10,
           ),
         ),
       ],

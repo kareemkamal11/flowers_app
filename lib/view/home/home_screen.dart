@@ -1,8 +1,10 @@
-import 'package:flowers/core/app_route.dart';
 import 'package:flowers/core/app_text.dart';
+import 'package:flowers/view_models/homescreen/homescreen_cubit.dart';
+import 'package:flowers/view_models/homescreen/homescreen_state.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'widgets/app_drawer_widget.dart';
 import 'widgets/best_selling_box_list.dart';
 import 'widgets/home_appbar_widget.dart';
 import '../utils/app_search_widget.dart';
@@ -15,67 +17,35 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.only(top: 20, left: 15, right: 15),
-            child: Column(
-              children: [
-                const HomeAppBarWidget(),
-                const HomePageAdWidget(),
-                AppSearchWidget(
-                  onTap: () {},
-                  hintText: AppText.hintSearch,
+      child: BlocBuilder<HomeScreenCubit, HomeScreenState>(
+        builder: (context, state) {
+          var cubit = BlocProvider.of<HomeScreenCubit>(context);
+            return Scaffold(
+              body: SingleChildScrollView(
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 20, left: 15, right: 15),
+                  child: Column(
+                    children: [
+                      const HomeAppBarWidget(),
+                      const HomePageAdWidget(),
+                      AppSearchWidget(
+                        onTap: () {},
+                        hintText: AppText.hintSearch,
+                      ),
+                      const SizedBox(height: 25),
+                      DiscoverCategoriesWidget(
+                        listDiscoveryCategory: cubit.cListDiscoveryCategory, 
+                      ),
+                      const SizedBox(height: 25),
+                      const BestSellingBoxList(),
+                    ],
+                  ),
                 ),
-                const SizedBox(height: 25),
-                DiscoverCategoriesWidget(
-                  onTap: () {
-                    GoRouter.of(context).push(AppRoute.categorylist);
-                  },
-                ),
-                const SizedBox(height: 25),
-                const BestSellingBoxList(),
-              ],
-            ),
-          ),
-        ),
-        drawer: Drawer(
-          child: ListView(
-            children: [
-              ListTile(
-                title: const Text(AppText.home),
-                onTap: () {
-                  GoRouter.of(context).pop();
-                },
               ),
-              ListTile(
-                title: const Text(AppText.categorylist),
-                onTap: () {
-                  GoRouter.of(context).push(AppRoute.categorylist);
-                },
-              ),
-              ListTile(
-                title: const Text(AppText.cart),
-                onTap: () {
-                  GoRouter.of(context).push(AppRoute.cart);
-                },
-              ),
-              // product details
-              ListTile(
-                title: const Text(AppText.productDetails),
-                onTap: () {
-                  GoRouter.of(context).push(AppRoute.productDetails);
-                },
-              ),
-              ListTile(
-                title: const Text(AppText.confirmOrder),
-                onTap: () {
-                  GoRouter.of(context).push(AppRoute.confirmOrder);
-                },
-              ),
-            ],
-          ),
-        ),
+              drawer: const AppDrawerWidget(),
+            );  
+          }
+          
       ),
     );
   }
