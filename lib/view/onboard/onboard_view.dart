@@ -40,7 +40,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         currentIndex++;
       });
     } else {
-      Navigator.of(context).pushReplacementNamed(AppNavigator.homeScreen());
+      Navigator.of(context).pushReplacement(AppNavigator.homeScreen());
       SharedPreferences.getInstance().then((prefs) {
         prefs.setBool('onboard', true);
       });

@@ -14,22 +14,22 @@ class AppNavigator {
   static onBoarding() =>
       MaterialPageRoute(builder: (context) => const OnboardingScreen());
 
-  static homeScreen() => MaterialPageRoute(
+  static MaterialPageRoute homeScreen() => MaterialPageRoute(
       builder: (context) => BlocProvider(
             create: (context) => HomeScreenCubit(),
             child: const HomeScreen(),
           ));
 
-  static bestSelling() =>
+  static MaterialPageRoute bestSelling() =>
       MaterialPageRoute(builder: (context) => const BestSellingScreen());
 
-  static categoryList() =>
+  static MaterialPageRoute categoryList() =>
       MaterialPageRoute(builder: (context) => const CategoryListScreen());
-  static cartScreen() =>
+  static MaterialPageRoute cartScreen() =>
       MaterialPageRoute(builder: (context) => const CartScreen());
-  static productsDetails() =>
+  static MaterialPageRoute productsDetails() =>
       MaterialPageRoute(builder: (context) => const ProductDetailsScreen());
 
-  static checkoutScreen() =>
+  static MaterialPageRoute checkoutScreen() =>
       MaterialPageRoute(builder: (context) => const CheckoutScreen());
 }

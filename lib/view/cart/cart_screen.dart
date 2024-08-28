@@ -3,7 +3,6 @@ import 'package:flowers/core/app_text.dart';
 import 'package:flowers/view/utils/buy_product_widgets.dart';
 import 'package:flowers/view/utils/custom_appbar_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 import 'widgets/item_cart.dart';
 
@@ -42,7 +41,7 @@ class CartScreen extends StatelessWidget {
               right: 20,
               child: BuyProductWidgets(
                 onPressed: () {
-                  context.push(AppNavigator.checkoutScreen());
+                  Navigator.of(context).push(AppNavigator.checkoutScreen());
                 },
                 totalProducts: 0,
                 totalPrice: 0,

@@ -35,7 +35,7 @@ class CheckoutScreen extends StatelessWidget {
               CustomButtonWidget(
                 title: AppText.backHome,
                 onPressed: () => Navigator.of(context)
-                    .pushReplacementNamed(AppNavigator.homeScreen()),
+                    .pushReplacement(AppNavigator.homeScreen()),
               )
             ],
           )),

@@ -2,7 +2,6 @@
 import 'package:flowers/core/navigation_app.dart';
 import 'package:flowers/core/app_styles.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 class AddCartWidget extends StatelessWidget {
   const AddCartWidget({
@@ -17,7 +16,7 @@ class AddCartWidget extends StatelessWidget {
       right: 0,
       child: InkWell(
         onTap: () {
-          context.push(AppNavigator.cartScreen()); 
+          Navigator.of(context).push(AppNavigator.cartScreen()); 
         },
         splashColor: Colors.transparent,
         child: Container(

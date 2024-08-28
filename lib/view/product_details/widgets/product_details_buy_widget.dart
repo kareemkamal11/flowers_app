@@ -3,7 +3,6 @@ import 'package:flowers/core/app_styles.dart';
 import 'package:flowers/core/app_text.dart';
 import 'package:flowers/view_models/product_details_cubit/counter_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 import '../../utils/buy_product_widgets.dart';
 import '../../utils/products_conter_widget.dart';
@@ -50,7 +49,7 @@ class ProductDetailsBuyWidget extends StatelessWidget {
           const SizedBox(height: 80),
           BuyProductWidgets(
             onPressed: (){
-              context.push(AppNavigator.cartScreen());
+              Navigator.of(context).push(AppNavigator.cartScreen());
             },
             totalProducts: productsCubit.products,
             totalPrice: productsCubit.products,

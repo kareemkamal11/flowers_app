@@ -3,7 +3,6 @@ import 'package:flowers/core/app_styles.dart';
 import 'package:flowers/core/app_text.dart';
 import 'package:flowers/view/utils/seeall_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 import '../../utils/item_selling_widget.dart';
 
@@ -30,7 +29,7 @@ class _BestSellingBoxListState extends State<BestSellingBoxList> {
             const Spacer(),
             SeeallWidget(
               onTap: () {
-                context.push(AppNavigator.bestSelling());
+                Navigator.of(context).push(AppNavigator.bestSelling());
               },
             )
           ],

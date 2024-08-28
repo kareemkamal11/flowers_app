@@ -1,7 +1,6 @@
 import 'package:flowers/core/navigation_app.dart';
 import 'package:flowers/core/assets_util.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 class HomeAppBarWidget extends StatelessWidget {
   const HomeAppBarWidget({
@@ -31,7 +30,7 @@ class HomeAppBarWidget extends StatelessWidget {
           ),
           IconButton(
               onPressed: () {
-                context.push(AppNavigator.cartScreen());
+                Navigator.of(context).push(AppNavigator.cartScreen());
               },
               icon: const Icon(
                 // shopping cart icon
