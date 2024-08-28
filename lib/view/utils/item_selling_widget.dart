@@ -1,6 +1,5 @@
 import 'package:flowers/core/app_styles.dart';
 import 'package:flowers/core/app_text.dart';
-import 'package:flowers/core/assets_util.dart';
 import 'package:flutter/material.dart';
 
 import 'add_cart_widget.dart';
@@ -13,14 +12,15 @@ class ItemSellingWidget extends StatelessWidget {
     required this.title,
     required this.flavor,
     required this.price,
+    required this.image,
   });
 
   final Function() favoriteClick;
 
-
   final bool isFavorite;
 
   final String title;
+  final String image;
   final String flavor;
   final String price;
 
@@ -28,7 +28,7 @@ class ItemSellingWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 190,
-      height: 200,
+      height: 220,
       decoration: ShapeDecoration(
         gradient: LinearGradient(
           colors: [Colors.white, AppStyles.cardColor],
@@ -51,7 +51,7 @@ class ItemSellingWidget extends StatelessWidget {
       child: Stack(
         children: [
           Padding(
-            padding: const EdgeInsets.all(8),
+            padding: const EdgeInsets.all(10),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -59,9 +59,9 @@ class ItemSellingWidget extends StatelessWidget {
                 Align(
                   alignment: Alignment.center,
                   child: Image.asset(
-                    AssetsUtil.donuts,
+                    image,
                     width: 117,
-                    height: 78,
+                    height: 60,
                   ),
                 ),
                 const SizedBox(height: 25),

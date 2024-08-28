@@ -1,7 +1,6 @@
 import 'package:flowers/core/app_styles.dart';
 import 'package:flowers/core/assets_util.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 class CustomAppBarWidget extends StatelessWidget {
   const CustomAppBarWidget({
@@ -31,18 +30,18 @@ class CustomAppBarWidget extends StatelessWidget {
                       size: 30,
                     ),
                     onPressed: () {
-                      GoRouter.of(context).pop(); //
+                      Navigator.of(context).pop();
                     },
                   ),
-                  Text(title, style: AppStyles.robotoStyle.copyWith(
-                    fontSize: 25,
-                    
-                  )),
+                  Text(title,
+                      style: AppStyles.robotoStyle.copyWith(
+                        fontSize: 25,
+                      )),
                   Image.asset(AssetsUtil.vector, width: 30),
                 ],
               ),
               const SizedBox(height: 15),
-              customWidget?? Container(),
+              customWidget ?? Container(),
             ],
           ),
         ),

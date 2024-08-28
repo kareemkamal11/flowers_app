@@ -55,4 +55,6 @@ class AppText {
 
   static const String describtionText =
       "There are many variations of passages of Lorem Ipsum available, he majority have There are many variations of passages of Lorem Ipsum available, he majority have";
+
+  static String favorite = 'Favorite';
 }

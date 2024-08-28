@@ -18,35 +18,33 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: BlocBuilder<HomeScreenCubit, HomeScreenState>(
-        builder: (context, state) {
-          var cubit = BlocProvider.of<HomeScreenCubit>(context);
-            return Scaffold(
-              body: SingleChildScrollView(
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 20, left: 15, right: 15),
-                  child: Column(
-                    children: [
-                      const HomeAppBarWidget(),
-                      const HomePageAdWidget(),
-                      AppSearchWidget(
-                        onTap: () {},
-                        hintText: AppText.hintSearch,
-                      ),
-                      const SizedBox(height: 25),
-                      DiscoverCategoriesWidget(
-                        listDiscoveryCategory: cubit.cListDiscoveryCategory, 
-                      ),
-                      const SizedBox(height: 25),
-                      const BestSellingBoxList(),
-                    ],
+          builder: (context, state) {
+        var cubit = BlocProvider.of<HomeScreenCubit>(context);
+        return Scaffold(
+          body: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.only(top: 20, left: 15, right: 15),
+              child: Column(
+                children: [
+                  const HomeAppBarWidget(),
+                  const HomePageAdWidget(),
+                  AppSearchWidget(
+                    onTap: () {},
+                    hintText: AppText.hintSearch,
                   ),
-                ),
+                  const SizedBox(height: 25),
+                  DiscoverCategoriesWidget(
+                    listDiscoveryCategory: cubit.cListDiscoveryCategory,
+                  ),
+                  const SizedBox(height: 25),
+                  const BestSellingBoxList(),
+                ],
               ),
-              drawer: const AppDrawerWidget(),
-            );  
-          }
-          
-      ),
+            ),
+          ),
+          drawer: const AppDrawerWidget(),
+        );
+      }),
     );
   }
 }

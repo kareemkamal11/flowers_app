@@ -9,31 +9,17 @@ class BestSellingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool isFavorite = false;
-
-    favoriteClick() {
-      print('Favorite Clicked');
-    }
-
-    addCartClick() {
-      print('Add Cart Clicked');
-    }
-
-    return SafeArea(
+    return const SafeArea(
       child: Scaffold(
           body: CustomScrollView(
-        physics: const BouncingScrollPhysics(),
+        physics: BouncingScrollPhysics(),
         slivers: [
-          const SliverToBoxAdapter(
+          SliverToBoxAdapter(
             child: CustomAppBarWidget(
               title: AppText.bestSelling,
             ),
           ),
-          BestSellingList(
-            isFavorite: isFavorite,
-            favoriteClick: favoriteClick,
-            addCartClick: addCartClick,
-          ),
+          BestSellingList(),
         ],
       )),
     );
