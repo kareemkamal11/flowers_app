@@ -1,20 +1,23 @@
 import 'package:flowers/core/app_styles.dart';
-import 'package:flowers/core/assets_util.dart';
+import 'package:flowers/view_models/cart_cubit/cart_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../utils/products_conter_widget.dart';
 import 'cancel_product_widget.dart';
 import 'cart_details_widget.dart';
 
 class ItmeCart extends StatelessWidget {
-  const ItmeCart({super.key});
+  const ItmeCart({super.key, required this.index});
+
+  final int index;
 
   @override
   Widget build(BuildContext context) {
+    var cubit = BlocProvider.of<CartCubit>(context);
     return Container(
-      padding: const EdgeInsets.all(0),
       width: 350,
-      height: 200,
+      height: 210,
       decoration: AppStyles.boxDecoration,
       child: Stack(
         children: [
@@ -23,6 +26,7 @@ class ItmeCart extends StatelessWidget {
               top: 15,
               left: 15,
               right: 10,
+              bottom: 5,
             ),
             child: Row(
               children: [
@@ -35,15 +39,15 @@ class ItmeCart extends StatelessWidget {
                   child: Column(
                     children: [
                       Image.asset(
-                        AssetsUtil.productDetails,
+                        cubit.cItemsCartData[index].image,
                         width: 100,
                         height: 120,
                       ),
                       const SizedBox(height: 15),
                       ProductsConter(
-                        products: 1,
-                        addProduct: () {},
-                        removeProduct: () {},
+                        products: cubit.cItemsCartData[index].totalProducts,
+                        addProduct: () => cubit.icrement(index),
+                        removeProduct: () => cubit.decrement(index),
                       ),
                     ],
                   ),
@@ -63,4 +67,3 @@ class ItmeCart extends StatelessWidget {
     );
   }
 }
-

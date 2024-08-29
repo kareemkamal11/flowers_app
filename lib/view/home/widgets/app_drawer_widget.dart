@@ -17,26 +17,7 @@ class AppDrawerWidget extends StatelessWidget {
             onTap: () {
               Navigator.of(context).pop();
             },
-          ),
-          ListTile(
-            title: const Text(AppText.categorylist),
-            onTap: () {
-              Navigator.of(context).push(AppNavigator.categoryList());
-            },
-          ),
-          ListTile(
-            title: const Text(AppText.cart),
-            onTap: () {
-              Navigator.of(context).push(AppNavigator.cartScreen());
-            },
-          ),
-          // product details
-          ListTile(
-            title: const Text(AppText.productDetails),
-            onTap: () {
-              Navigator.of(context).push(AppNavigator.productsDetails());
-            },
-          ),
+          ),          // product details
           ListTile(
             title: const Text(AppText.confirmOrder),
             onTap: () {

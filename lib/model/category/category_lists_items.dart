@@ -40,6 +40,10 @@ List<ItemModel> milkshakeItem = [
   ),
 ];
 
+  /*
+    copy all names from the milkshakeItem list 
+   */
+
 // cafe con leche items
 List<ItemModel> cafeConLecheItem = [
   ItemModel(

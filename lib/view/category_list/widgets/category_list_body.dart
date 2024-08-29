@@ -9,13 +9,15 @@ import 'category_item_details.dart';
 class CategoryListBody extends StatelessWidget {
   const CategoryListBody({
     super.key,
-    
+    required this.title,
+    required this.items,
   });
+
+  final String title;
+  final List<ItemModel> items;
 
   @override
   Widget build(BuildContext context) {
-    String title = 'Category List';
-    List<ItemModel> listItems = [];
     return CustomScrollView(
       physics: const BouncingScrollPhysics(),
       slivers: [
@@ -34,13 +36,13 @@ class CategoryListBody extends StatelessWidget {
           ),
         ),
         SliverList.builder(
-          itemCount: 10,
+          itemCount: items.length,
           itemBuilder: (context, index) {
             return CategoryItemDetails(
-              title: listItems[index].name,
-              image: listItems[index].image,
-              description: listItems[index].description,
-              price: listItems[index].price,
+              title: items[index].name,
+              image: items[index].image,
+              description: items[index].description,
+              price: items[index].price,
             );
           },
         ),

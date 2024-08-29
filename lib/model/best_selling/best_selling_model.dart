@@ -2,7 +2,7 @@ class BestSellingModel {
   final String name;
   final String image;
   final String flavor;
-  final String price;
+  final double price;
   bool isFavourite;
 
   BestSellingModel({

@@ -1,5 +1,6 @@
 import 'package:flowers/core/app_styles.dart';
 import 'package:flowers/core/app_text.dart';
+import 'package:flowers/core/navigation_app.dart';
 import 'package:flowers/model/category/discovery_category/discovery_category_model.dart';
 import 'package:flowers/view/utils/seeall_widget.dart';
 import 'package:flutter/material.dart';
@@ -57,7 +58,10 @@ class DiscoverCategoriesWidget extends StatelessWidget {
                 padding: const EdgeInsets.only(top: 15),
                 child: InkWell(
                   onTap: () {
-                    
+                    Navigator.push(
+                      context,
+                      AppNavigator.categoryList(index: index),
+                    );
                   },
                   child: Column(
                     children: [

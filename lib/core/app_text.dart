@@ -53,8 +53,12 @@ class AppText {
     return 'search in $category shake  ..';
   }
 
+  static const String emptyCart = 'Your cart is empty, add some Products to cart,,';
+
   static const String describtionText =
       "There are many variations of passages of Lorem Ipsum available, he majority have There are many variations of passages of Lorem Ipsum available, he majority have";
 
   static String favorite = 'Favorite';
+
+  static String goShoppingNow = 'Go Shopping Now!';
 }

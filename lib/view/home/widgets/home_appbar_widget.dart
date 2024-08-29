@@ -33,7 +33,6 @@ class HomeAppBarWidget extends StatelessWidget {
                 Navigator.of(context).push(AppNavigator.cartScreen());
               },
               icon: const Icon(
-                // shopping cart icon
                 Icons.shopping_cart_outlined,
                 size: 35,
               )),

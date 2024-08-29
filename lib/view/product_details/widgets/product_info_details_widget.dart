@@ -5,7 +5,14 @@ import 'package:flutter/material.dart';
 class ProductInfoDetailsWidget extends StatelessWidget {
   const ProductInfoDetailsWidget({
     super.key,
+    required this.productName,
+    required this.productPrice,
+    required this.description,
   });
+
+  final String productName;
+  final double productPrice;
+  final String description;
 
   @override
   Widget build(BuildContext context) {
@@ -15,14 +22,14 @@ class ProductInfoDetailsWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              'Oreo Milkshake',
+              productName,
               style: AppStyles.pangolinStyle.copyWith(
                 fontSize: 25,
                 fontWeight: FontWeight.w500,
               ),
             ),
             Text(
-              '45. ${AppText.currency}',
+              '$productPrice ${AppText.currency}',
               style: AppStyles.robotoStyle.copyWith(
                 fontSize: 25,
                 fontWeight: FontWeight.w600,
@@ -32,7 +39,7 @@ class ProductInfoDetailsWidget extends StatelessWidget {
         ),
         const SizedBox(height: 15),
         Text(
-          'There are many variations of passages of Lorem Ipsum available, he majority have There are many  variations of passages of Lorem Ipsum available,  he majority have',
+          description,
           style: AppStyles.robotoStyle.copyWith(
             fontSize: 18,
             color: AppStyles.hintColor,

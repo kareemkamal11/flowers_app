@@ -22,7 +22,7 @@ class ItemSellingWidget extends StatelessWidget {
   final String title;
   final String image;
   final String flavor;
-  final String price;
+  final double price;
 
   @override
   Widget build(BuildContext context) {
@@ -109,7 +109,11 @@ class ItemSellingWidget extends StatelessWidget {
               ),
             ),
           ),
-          const AddCartWidget()
+          AddCartWidget(
+              image: image,
+              productName: title,
+              productPrice: price,
+              ),
         ],
       ),
     );

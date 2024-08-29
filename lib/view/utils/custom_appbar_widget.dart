@@ -1,5 +1,6 @@
 import 'package:flowers/core/app_styles.dart';
 import 'package:flowers/core/assets_util.dart';
+import 'package:flowers/core/navigation_app.dart';
 import 'package:flutter/material.dart';
 
 class CustomAppBarWidget extends StatelessWidget {
@@ -7,11 +8,15 @@ class CustomAppBarWidget extends StatelessWidget {
     super.key,
     required this.title,
     this.customWidget,
+    this.customBackButton, this.customIcon,
   });
 
   final String title;
 
   final Widget? customWidget;
+
+  final IconData? customIcon;
+  final Function()? customBackButton;
 
   @override
   Widget build(BuildContext context) {
@@ -25,13 +30,16 @@ class CustomAppBarWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   IconButton(
-                    icon: const Icon(
+                    icon: Icon(
+                      customIcon ??
                       Icons.arrow_back_ios,
                       size: 30,
                     ),
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
+                    onPressed: customBackButton ??
+                        () {
+                          Navigator.of(context)
+                              .pushReplacement(AppNavigator.homeScreen());
+                        },
                   ),
                   Text(title,
                       style: AppStyles.robotoStyle.copyWith(

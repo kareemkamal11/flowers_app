@@ -59,4 +59,6 @@ class AssetsUtil {
   static const String mangoMilkshakeImage = "assets/image/Mango Milkshake.png";
   static const String chocolateMilkshakeImage =
       "assets/image/Chocolate Milkshake.png";
+
+  static const String cartEmpty = "assets/empty_cart.json";
 }

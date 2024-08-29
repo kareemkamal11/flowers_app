@@ -15,7 +15,7 @@ class BuyProductWidgets extends StatelessWidget {
 
   final Function() onPressed;
   final int totalProducts;
-  final int totalPrice;
+  final double totalPrice;
   final String titleButton;
 
   @override

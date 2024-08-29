@@ -77,7 +77,12 @@ class CategoryItemDetails extends StatelessWidget {
                 ],
               ),
             ),
-            const AddCartWidget()
+            AddCartWidget(
+              image: image,
+              productName: title,
+              productPrice: price,
+              description: description,
+            )
           ],
         ),
       ),

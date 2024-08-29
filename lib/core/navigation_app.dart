@@ -13,8 +13,8 @@ class AppNavigator {
   static onBoarding() =>
       MaterialPageRoute(builder: (context) => const OnboardingScreen());
 
-  static MaterialPageRoute homeScreen() => MaterialPageRoute(
-      builder: (context) => const HomeScreen());
+  static MaterialPageRoute homeScreen() =>
+      MaterialPageRoute(builder: (context) => const HomeScreen());
 
   static MaterialPageRoute bestSelling() =>
       MaterialPageRoute(builder: (context) => const BestSellingScreen());
@@ -22,12 +22,26 @@ class AppNavigator {
   static MaterialPageRoute favoriteScreen() =>
       MaterialPageRoute(builder: (context) => const FavoriteListScreen());
 
-  static MaterialPageRoute categoryList() =>
-      MaterialPageRoute(builder: (context) => const CategoryListScreen());
+  static MaterialPageRoute categoryList({
+    required int index,
+  }) =>
+      MaterialPageRoute(builder: (context) => CategoryListScreen(index: index));
   static MaterialPageRoute cartScreen() =>
       MaterialPageRoute(builder: (context) => const CartScreen());
-  static MaterialPageRoute productsDetails() =>
-      MaterialPageRoute(builder: (context) => const ProductDetailsScreen());
+      
+  static MaterialPageRoute productsDetails({
+    required String image,
+    required String productName,
+    required double productPrice,
+    String description = '',
+  }) =>
+      MaterialPageRoute(
+          builder: (context) => ProductDetailsScreen(
+                image: image,
+                productName: productName,
+                productPrice: productPrice,
+                description: description,
+              ));
 
   static MaterialPageRoute checkoutScreen() =>
       MaterialPageRoute(builder: (context) => const CheckoutScreen());
