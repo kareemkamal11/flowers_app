@@ -3,7 +3,6 @@ import 'package:flowers/core/app_text.dart';
 import 'package:flowers/view/utils/buy_product_widgets.dart';
 import 'package:flowers/view/utils/custom_appbar_widget.dart';
 import 'package:flowers/view_models/cart_cubit/cart_cubit.dart';
-import 'package:flowers/view_models/cart_cubit/cart_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -17,60 +16,57 @@ class CartScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var cubit = BlocProvider.of<CartCubit>(context);
     return SafeArea(
-      child: BlocBuilder<CartCubit, CartState>(
-        builder: (context, state) {
-          var cubit = BlocProvider.of<CartCubit>(context);
-          return Scaffold(
-            body: Stack(
-              children: [
-                CustomScrollView(
-                  physics: const BouncingScrollPhysics(),
-                  slivers: [
-                    SliverToBoxAdapter(
-                      child: CustomAppBarWidget(
-                        title: AppText.cart,
-                        customIcon: Icons.add,
-                        customBackButton: () {
-                          Navigator.of(context).pop();
+        child: Scaffold(
+      body: Stack(
+        children: [
+          CustomScrollView(
+            physics: const BouncingScrollPhysics(),
+            slivers: [
+              SliverToBoxAdapter(
+                child: CustomAppBarWidget(
+                  title: AppText.cart,
+                  customIcon: Icons.add,
+                  customBackButton: () {
+                    Navigator.of(context).pop();
+                  },
+                ),
+              ),
+              cubit.cItemsCartData.isEmpty
+                  ? const CartIsEmpty()
+                  : SliverList(
+                      delegate: SliverChildBuilderDelegate(
+                        childCount: cubit.cItemsCartData.length,
+                        (context, index) {
+                          return Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 15, vertical: 15),
+                            child: ItmeCart(
+                              index: index,
+                            ),
+                          );
                         },
                       ),
                     ),
-                    cubit.cItemsCartData.isEmpty
-                        ? const CartIsEmpty()
-                        : SliverList.builder(
-                            itemCount: cubit.cItemsCartData.length,
-                            itemBuilder: (context, index) {
-                              return Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 15, vertical: 15),
-                                child: ItmeCart(
-                                  index: index,
-                                ),
-                              );
-                            },
-                          ),
-                  ],
-                ),
-                Positioned(
-                  bottom: 7,
-                  left: 20,
-                  right: 20,
-                  child: BuyProductWidgets(
-                    onPressed: () {
-                      Navigator.of(context).push(AppNavigator.checkoutScreen());
-                    },
-                    totalProducts: cubit.totalItems,
-                    totalPrice: cubit.totalPrice,
-                    titleButton: AppText.confirm,
-                  ),
-                ),
-                const SizedBox(height: 10),
-              ],
+            ],
+          ),
+          Positioned(
+            bottom: 7,
+            left: 20,
+            right: 20,
+            child: BuyProductWidgets(
+              onPressed: () {
+                Navigator.of(context).push(AppNavigator.checkoutScreen());
+              },
+              totalProducts: cubit.totalItems,
+              totalPrice: cubit.totalPrice,
+              titleButton: AppText.confirm,
             ),
-          );
-        },
+          ),
+          const SizedBox(height: 10),
+        ],
       ),
-    );
+    ));
   }
 }
