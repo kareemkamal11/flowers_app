@@ -1,20 +1,27 @@
 import 'package:flowers/core/app_styles.dart';
-import 'package:flowers/view_models/cart_cubit/cart_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../utils/products_conter_widget.dart';
 import 'cancel_product_widget.dart';
 import 'cart_details_widget.dart';
 
 class ItmeCart extends StatelessWidget {
-  const ItmeCart({super.key, required this.index});
+  const ItmeCart({
+    super.key, required this.title, required this.description, required this.price, required this.totalPrice, required this.image, required this.totalProducts, required this.icrement, required this.decrement, required this.removeItem,
+  });
 
-  final int index;
+  final String title;
+  final String description;
+  final double price;
+  final double totalPrice;
+  final String image;
+  final int totalProducts;
+  final Function() icrement;
+  final Function() decrement;
+  final Function() removeItem;
 
   @override
   Widget build(BuildContext context) {
-    var cubit = BlocProvider.of<CartCubit>(context);
     return Container(
       width: 350,
       height: 210,
@@ -30,24 +37,29 @@ class ItmeCart extends StatelessWidget {
             ),
             child: Row(
               children: [
-                const Expanded(
+                Expanded(
                   flex: 2,
-                  child: CartDetailsWidget(),
+                  child: CartDetailsWidget(
+                    title: title,
+                    description: description,
+                    priceProduct: price,
+                    totalPrice: totalPrice,
+                  ),
                 ),
                 Expanded(
                   flex: 1,
                   child: Column(
                     children: [
                       Image.asset(
-                        cubit.cItemsCartData[index].image,
+                        image,
                         width: 100,
                         height: 120,
                       ),
                       const SizedBox(height: 15),
                       ProductsConter(
-                        products: cubit.cItemsCartData[index].totalProducts,
-                        addProduct: () => cubit.icrement(index),
-                        removeProduct: () => cubit.decrement(index),
+                        products: totalProducts,
+                        addProduct: icrement,
+                        removeProduct: decrement,
                       ),
                     ],
                   ),
@@ -59,7 +71,7 @@ class ItmeCart extends StatelessWidget {
             top: 0,
             right: 0,
             child: CancelProductWidget(
-              onTap: () {},
+              onTap: removeItem,
             ),
           )
         ],

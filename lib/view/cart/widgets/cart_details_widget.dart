@@ -5,7 +5,17 @@ import 'package:flutter/material.dart';
 class CartDetailsWidget extends StatelessWidget {
   const CartDetailsWidget({
     super.key,
+    required this.title,
+    required this.description,
+    required this.priceProduct,
+    required this.totalPrice,
   });
+
+  // add final variables title and description and priceProduct and totalPrice
+  final String title;
+  final String description;
+  final double priceProduct;
+  final double totalPrice;
 
   @override
   Widget build(BuildContext context) {
@@ -13,11 +23,11 @@ class CartDetailsWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Oreo Milkshake',
+          title,
           style: AppStyles.pangolinStyle.copyWith(fontSize: 22),
         ),
         Text(
-          'There are many variations of passages of Lorem Ipsum',
+          description,
           style: AppStyles.robotoStyle
               .copyWith(fontSize: 18, color: AppStyles.hintColor),
           maxLines: 3,
@@ -25,7 +35,7 @@ class CartDetailsWidget extends StatelessWidget {
         ),
         const SizedBox(height: 20),
         Text(
-          '${AppText.price} : 45. ${AppText.currency}',
+          '${AppText.price} $priceProduct ${AppText.currency}',
           style: AppStyles.robotoStyle.copyWith(
               color: AppStyles.pinkColor,
               fontSize: 18,
@@ -34,18 +44,18 @@ class CartDetailsWidget extends StatelessWidget {
         const SizedBox(height: 10),
         RichText(
           text: TextSpan(
-            style: AppStyles.robotoStyle.copyWith(
-                color: AppStyles.hintColor, fontSize: 16),
+            style: AppStyles.robotoStyle
+                .copyWith(color: AppStyles.hintColor, fontSize: 16),
             children: [
               TextSpan(
-                text: 'Total : ',
+                text: '${AppText.total} : ',
                 style: AppStyles.robotoStyle.copyWith(
                   color: AppStyles.pinkColor,
                   fontSize: 18,
                 ),
               ),
               TextSpan(
-                text: '90. ${AppText.currency}',
+                text: '${totalPrice.toStringAsFixed(2)} ${AppText.currency}',
                 style: AppStyles.robotoStyle.copyWith(
                   color: AppStyles.mainColor,
                   fontSize: 18,
@@ -58,4 +68,3 @@ class CartDetailsWidget extends StatelessWidget {
     );
   }
 }
-

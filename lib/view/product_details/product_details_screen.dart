@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flowers/core/app_styles.dart';
 import 'package:flowers/core/navigation_app.dart';
 import 'package:flowers/model/cart/cart_item_model.dart';
@@ -60,7 +62,8 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                 setState(() {
                   counter++;
                   totalProducts++;
-                  totalPrice = widget.productPrice * counter;
+                  totalPrice = widget.productPrice * counter; // مضاعفة السعر بعد زيادة العدد من المنتجات
+                  log('totalPrice: $totalPrice');
                 });
               },
               removeProduct: () {

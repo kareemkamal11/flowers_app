@@ -5,7 +5,7 @@ import 'package:flowers/view_models/homescreen/homescreen_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'utils/item_selling_widget.dart';
+import '../utils/item_selling_widget.dart';
 
 class FavoriteListScreen extends StatelessWidget {
   const FavoriteListScreen({super.key});

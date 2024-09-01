@@ -26,7 +26,7 @@ class BuyProductWidgets extends StatelessWidget {
         children: [
           ShowProductsConter(
             totalProducts: totalProducts,
-            totalPrice: totalProducts,
+            totalPrice: totalPrice,
           ),
           const SizedBox(height: 30),
           CustomButtonWidget(

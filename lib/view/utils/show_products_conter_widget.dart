@@ -10,10 +10,14 @@ class ShowProductsConter extends StatelessWidget {
   });
 
   final int totalProducts;
-  final int totalPrice;
+  final double totalPrice;
 
   @override
   Widget build(BuildContext context) {
+    // كيف اخذ اول رقمين من من بعد العلامة العشرية
+    // اولا نحول الرقم الى نص
+    // ثم نقوم بتقسيم النص الى قسمين بواسطة العلامة العشرية
+    // ثم نقوم بتحويل القسم الاول الى رقم
     return Container(
       width: 400,
       height: 70,
@@ -40,7 +44,7 @@ class ShowProductsConter extends StatelessWidget {
             ),
           ),
           Text(
-            'Total: $totalPrice ${AppText.currency}',
+            'Total: ${totalPrice.toStringAsFixed(2)} ${AppText.currency}',
             style: AppStyles.robotoStyle.copyWith(
               fontSize: 18,
               fontWeight: FontWeight.w500,

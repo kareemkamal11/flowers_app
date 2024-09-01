@@ -45,6 +45,7 @@ class AppText {
   static const String noMoreCategory = 'no more category to see ';
 
   static const String foodText = "Food";
+  static const String total = "Total";
 
   static const String milkshake = 'Milkshake';
   static const String addtoCart = 'Add to cart';

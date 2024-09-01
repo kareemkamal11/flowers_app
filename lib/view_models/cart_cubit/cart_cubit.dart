@@ -9,22 +9,24 @@ class CartCubit extends Cubit<CartState> {
 
   List<CartItemModel> cItemsCartData = itemsCartData;
 
-  // Add method to icrement cItemsCartData[index].totalProducts and cItemsCartData[index].totalPrice 
+  double get totalPrice => cItemsCartData.fold(
+      0, (previousValue, element) => previousValue + element.totalPrice);
+  int get totalItems => cItemsCartData.fold(
+      0, (previousValue, element) => previousValue + element.totalProducts);
+
   icrement(int index) {
     cItemsCartData[index].totalProducts++;
-    cItemsCartData[index].totalPrice = cItemsCartData[index].price * cItemsCartData[index].totalProducts;
+    cItemsCartData[index].totalPrice =
+        cItemsCartData[index].price * cItemsCartData[index].totalProducts;
     emit(CartIncremented());
   }
+
   decrement(int index) {
     cItemsCartData[index].totalProducts--;
-    cItemsCartData[index].totalPrice = cItemsCartData[index].price * cItemsCartData[index].totalProducts;
+    cItemsCartData[index].totalPrice =
+        cItemsCartData[index].price * cItemsCartData[index].totalProducts;
     emit(CartDecremented());
   }
-
-  double get totalPrice => cItemsCartData.fold(0, (previousValue, element) 
-   => previousValue + element.totalPrice);
-  int get totalItems => cItemsCartData.fold(0, (previousValue, element)
-   => previousValue + element.totalProducts);
 
   removeItem(int index) {
     cItemsCartData.removeAt(index);
@@ -35,4 +37,10 @@ class CartCubit extends Cubit<CartState> {
     cItemsCartData.add(item);
     emit(CartAddedItem());
   }
+
+  checkout() {
+    cItemsCartData.clear();
+    emit(CartCheckout());
+  }
+
 }

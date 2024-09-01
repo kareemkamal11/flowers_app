@@ -9,3 +9,5 @@ class CartDecremented extends CartState {}
 class CartRemovedItem extends CartState {}
 
 class CartAddedItem extends CartState {}
+
+class CartCheckout extends CartState {}
