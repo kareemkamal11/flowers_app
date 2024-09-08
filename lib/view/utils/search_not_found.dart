@@ -1,4 +1,5 @@
 import 'package:flowers/core/app_styles.dart';
+import 'package:flowers/core/app_text.dart';
 import 'package:flowers/core/assets_util.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
@@ -21,7 +22,7 @@ class SearchNotFound extends StatelessWidget {
         const SizedBox(height: 15),
         RichText(
           text: TextSpan(
-            text: 'No results found for : ',
+            text: AppText.notFoundSearch,
             style: AppStyles.pangolinStyle,
             children: [
               TextSpan(

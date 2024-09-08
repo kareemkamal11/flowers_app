@@ -44,6 +44,8 @@ class AppText {
   static const String soup = 'Soup';
   static const String sushi = 'Sushi';
 
+  static const String notFoundSearch = 'No results found for : ';
+
   static const String noMoreCategory = 'no more category to see ';
 
   static const String foodText = "Food";
@@ -85,4 +87,7 @@ class AppText {
   static String favorite = 'Favorite';
 
   static String goShoppingNow = 'Go Shopping Now!';
+
+  static String emptyFavorite = 'You have not added any products to favorites yet';
+
 }
