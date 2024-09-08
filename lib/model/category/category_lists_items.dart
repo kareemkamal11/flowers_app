@@ -1,7 +1,7 @@
 import 'package:flowers/core/assets_util.dart';
 import 'package:flowers/model/category/category_details_model.dart';
 
-// milkshake items
+
 List<ItemModel> milkshakeItem = [
   ItemModel(
     image: AssetsUtil.oreoMilkshakeImage,
@@ -40,11 +40,7 @@ List<ItemModel> milkshakeItem = [
   ),
 ];
 
-  /*
-    copy all names from the milkshakeItem list 
-   */
 
-// cafe con leche items
 List<ItemModel> cafeConLecheItem = [
   ItemModel(
     image: AssetsUtil.cafeBombonImage,
@@ -83,7 +79,7 @@ List<ItemModel> cafeConLecheItem = [
   ),
 ];
 
-// espresso items
+
 List<ItemModel> espressoItem = [
   ItemModel(
     image: AssetsUtil.americanoImage,
@@ -127,7 +123,7 @@ List<ItemModel> espressoItem = [
   ),
 ];
 
-// food items
+
 List<ItemModel> foodItem = [
   ItemModel(
     image: AssetsUtil.cakeImage,
@@ -185,3 +181,4 @@ List<ItemModel> foodItem = [
     price: 80,
   ),
 ];
+

@@ -5,6 +5,7 @@ class CartItemModel {
   final String image;
   int totalProducts;
   double totalPrice;
+  String? flavor;
 
   CartItemModel({
     required this.title,
@@ -13,5 +14,6 @@ class CartItemModel {
     required this.image,
     required this.totalProducts,
     required this.totalPrice,
+    this.flavor,
   });
 }

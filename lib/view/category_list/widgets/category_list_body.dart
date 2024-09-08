@@ -6,7 +6,7 @@ import '../../utils/app_search_widget.dart';
 import '../../utils/custom_appbar_widget.dart';
 import 'category_item_details.dart';
 
-class CategoryListBody extends StatelessWidget {
+class CategoryListBody extends StatefulWidget {
   const CategoryListBody({
     super.key,
     required this.title,
@@ -17,6 +17,30 @@ class CategoryListBody extends StatelessWidget {
   final List<ItemModel> items;
 
   @override
+  State<CategoryListBody> createState() => _CategoryListBodyState();
+}
+
+class _CategoryListBodyState extends State<CategoryListBody> {
+  final TextEditingController searchController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    searchController.addListener(update);
+  }
+
+  void update() {
+    setState(() {});
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    searchController.removeListener(update);
+    searchController.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return CustomScrollView(
       physics: const BouncingScrollPhysics(),
@@ -25,10 +49,13 @@ class CategoryListBody extends StatelessWidget {
           child: Column(
             children: [
               CustomAppBarWidget(
-                title: title,
+                title: widget.title,
                 customWidget: AppSearchWidget(
-                  onTap: () {},
-                  hintText: AppText.hintSearchCategory(title),
+                  searchController: searchController,
+                  onSaved: (value) {},
+                  onSearchTapped: () {},
+                  suffinxIcon: const SizedBox(),
+                  hintText: AppText.hintSearchCategory(widget.title),
                 ),
               ),
               const SizedBox(height: 30),
@@ -36,13 +63,14 @@ class CategoryListBody extends StatelessWidget {
           ),
         ),
         SliverList.builder(
-          itemCount: items.length,
+          itemCount: widget.items.length,
           itemBuilder: (context, index) {
             return CategoryItemDetails(
-              title: items[index].name,
-              image: items[index].image,
-              description: items[index].description,
-              price: items[index].price,
+              title: widget.items[index].name,
+              image: widget.items[index].image,
+              description: widget.items[index].description,
+              price: widget.items[index].price,
+              flavor: widget.items[index].flavor,
             );
           },
         ),

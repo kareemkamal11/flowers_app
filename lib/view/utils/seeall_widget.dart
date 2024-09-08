@@ -18,7 +18,6 @@ class SeeallWidget extends StatelessWidget {
           AppText.seeAll,
           style: AppStyles.robotoStyle
               .copyWith(
-                // set border color to black
                 color: AppStyles.seeallColor,
                 fontSize: 16,
                 fontWeight: FontWeight.w500

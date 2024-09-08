@@ -6,10 +6,21 @@ import 'cancel_product_widget.dart';
 import 'cart_details_widget.dart';
 
 class ItmeCart extends StatelessWidget {
-  const ItmeCart({
-    super.key, required this.title, required this.description, required this.price, required this.totalPrice, required this.image, required this.totalProducts, required this.icrement, required this.decrement, required this.removeItem,
+  ItmeCart({
+    super.key,
+    required this.title,
+    required this.description,
+    required this.price,
+    required this.totalPrice,
+    required this.image,
+    required this.totalProducts,
+    required this.icrement,
+    required this.decrement,
+    required this.removeItem,
+    this.flavor, // هذا الباراميتر اختياري واذا لم يتم ارسال قيمة له سيكون قيمته null
   });
 
+  String? flavor;
   final String title;
   final String description;
   final double price;
@@ -44,6 +55,7 @@ class ItmeCart extends StatelessWidget {
                     description: description,
                     priceProduct: price,
                     totalPrice: totalPrice,
+                    flavor: flavor,
                   ),
                 ),
                 Expanded(

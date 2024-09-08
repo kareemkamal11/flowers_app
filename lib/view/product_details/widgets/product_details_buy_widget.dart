@@ -7,9 +7,8 @@ import '../../utils/products_conter_widget.dart';
 import 'product_info_details_widget.dart';
 
 class ProductDetailsBuyWidget extends StatelessWidget {
-  const ProductDetailsBuyWidget(
-    this.screenHeight,
-    {
+  ProductDetailsBuyWidget(
+    this.screenHeight, {
     super.key,
     required this.productName,
     required this.productPrice,
@@ -18,10 +17,14 @@ class ProductDetailsBuyWidget extends StatelessWidget {
     required this.totalPrice,
     required this.totalProducts,
     required this.addProduct,
-    required this.removeProduct, required this.buyProduct,
+    required this.removeProduct,
+    required this.buyProduct,
+    this.flavor,
   });
 
   final double screenHeight;
+
+  String? flavor;
 
   final String productName;
   final double productPrice;
@@ -56,6 +59,7 @@ class ProductDetailsBuyWidget extends StatelessWidget {
             productName: productName,
             productPrice: productPrice,
             description: description,
+            flavor: flavor,
           ),
           Container(
             height: 2,

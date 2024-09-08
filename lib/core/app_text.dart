@@ -1,5 +1,7 @@
+import 'package:flowers/core/app_styles.dart';
+import 'package:flutter/material.dart';
+
 class AppText {
-  //
   static const String titleAd = 'Choose What Suits \n Your Test';
   static const String discover = 'Discover by category';
   static const String bestSelling = 'Best Selling';
@@ -46,15 +48,36 @@ class AppText {
 
   static const String foodText = "Food";
   static const String total = "Total";
+  static const String searchEmpty =
+      "Search is empty, please enter a word to search";
 
   static const String milkshake = 'Milkshake';
   static const String addtoCart = 'Add to cart';
+
+  static noResults(String searchWord) {
+    return RichText(
+      text: TextSpan(
+        text: 'No results found for: ',
+        style: AppStyles.pangolinStyle.copyWith(color: Colors.white),
+        children: [
+          TextSpan(
+            text: searchWord,
+            style: AppStyles.pangolinStyle.copyWith(
+              color: AppStyles.cardColor,
+              fontWeight: FontWeight.bold,
+            ),
+          )
+        ],
+      ),
+    );
+  }
 
   static String hintSearchCategory(String category) {
     return 'search in $category shake  ..';
   }
 
-  static const String emptyCart = 'Your cart is empty, add some Products to cart,,';
+  static const String emptyCart =
+      'Your cart is empty, add some Products to cart,,';
 
   static const String describtionText =
       "There are many variations of passages of Lorem Ipsum available, he majority have There are many variations of passages of Lorem Ipsum available, he majority have";

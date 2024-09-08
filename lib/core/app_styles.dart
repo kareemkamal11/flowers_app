@@ -29,13 +29,19 @@ class AppStyles {
   );
 
   static TextStyle futuraStyle = const TextStyle(
-    color: Color(0xFF949494),
+    color: Color.fromARGB(255, 126, 125, 125),
     fontSize: 15,
     fontWeight: FontWeight.w400,
   );
 
   static TextStyle allertaStencil = GoogleFonts.allertaStencil(
     color: Colors.black,
+    fontSize: 20,
+    fontWeight: FontWeight.w500,
+  );
+
+  static TextStyle hintStyle = GoogleFonts.roboto(
+    color: hintColor,
     fontSize: 20,
     fontWeight: FontWeight.w500,
   );
@@ -54,4 +60,5 @@ class AppStyles {
       borderRadius: BorderRadius.circular(20),
     ),
   );
+
 }

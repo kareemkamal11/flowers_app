@@ -9,12 +9,14 @@ class AddCartWidget extends StatelessWidget {
     required this.productName,
     required this.productPrice,
     this.description = '',
+    this.flavor,
   });
 
   final String image;
   final String productName;
   final double productPrice;
   final String description;
+  final String? flavor;
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +29,7 @@ class AddCartWidget extends StatelessWidget {
             image: image,
             productName: productName,
             productPrice: productPrice,
+            flavor: flavor,
             description: description,
           ));
         },

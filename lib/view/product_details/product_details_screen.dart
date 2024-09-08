@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:flowers/core/app_styles.dart';
 import 'package:flowers/core/navigation_app.dart';
@@ -17,12 +16,15 @@ class ProductDetailsScreen extends StatefulWidget {
     required this.productName,
     required this.productPrice,
     this.description = '',
+    this.flavor,
   });
 
   final String image;
   final String productName;
   final double productPrice;
   final String description;
+  final String? flavor;
+
 
   @override
   State<ProductDetailsScreen> createState() => _ProductDetailsScreenState();
@@ -56,14 +58,15 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
               screenHeight,
               productName: widget.productName,
               productPrice: widget.productPrice,
+              flavor: widget.flavor,
               productsCounter: counter,
               description: widget.description,
               addProduct: () {
                 setState(() {
                   counter++;
                   totalProducts++;
-                  totalPrice = widget.productPrice * counter; // مضاعفة السعر بعد زيادة العدد من المنتجات
-                  log('totalPrice: $totalPrice');
+                  totalPrice = widget.productPrice *
+                      counter; 
                 });
               },
               removeProduct: () {

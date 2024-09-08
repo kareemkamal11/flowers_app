@@ -10,6 +10,8 @@ class AssetsUtil {
   static const String splashImage = 'assets/splash.png';
 
   static const String vector = 'assets/Vector.png';
+  
+  static const String searchIcon = 'assets/Search.png';
 
   static const String donuts = 'assets/homepage/donuts.png';
   static const String milkshake = 'assets/homepage/milkshake.png';

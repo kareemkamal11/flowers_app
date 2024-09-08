@@ -5,7 +5,6 @@ import 'package:flowers/core/assets_util.dart';
 import 'package:flowers/model/best_selling/best_selling_model.dart';
 
 List<String> flavor = [
-  // add randoms flavor
   'Vanilla',
   'Caramel',
   'Hazelnut',
@@ -26,7 +25,6 @@ List<String> flavor = [
   'Orange',
 ];
 
-// add randoms flavor
 
 List<BestSellingModel> bestSellingData = [
   BestSellingModel(

@@ -113,6 +113,7 @@ class ItemSellingWidget extends StatelessWidget {
               image: image,
               productName: title,
               productPrice: price,
+              flavor: flavor,
               ),
         ],
       ),

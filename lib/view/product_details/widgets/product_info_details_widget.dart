@@ -3,16 +3,18 @@ import 'package:flowers/core/app_text.dart';
 import 'package:flutter/material.dart';
 
 class ProductInfoDetailsWidget extends StatelessWidget {
-  const ProductInfoDetailsWidget({
+  ProductInfoDetailsWidget({
     super.key,
     required this.productName,
     required this.productPrice,
     required this.description,
+    this.flavor,
   });
 
   final String productName;
   final double productPrice;
   final String description;
+  String? flavor;
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +30,12 @@ class ProductInfoDetailsWidget extends StatelessWidget {
                 fontWeight: FontWeight.w500,
               ),
             ),
+            flavor == null
+                ? const SizedBox()
+                : Text(
+                    flavor!,
+                    style: AppStyles.robotoStyle,
+                  ),
             Text(
               '$productPrice ${AppText.currency}',
               style: AppStyles.robotoStyle.copyWith(

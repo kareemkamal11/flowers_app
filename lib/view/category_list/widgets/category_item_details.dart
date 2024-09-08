@@ -10,12 +10,14 @@ class CategoryItemDetails extends StatelessWidget {
     required this.description,
     required this.price,
     required this.image,
+    this.flavor,
   });
 
   final String title;
   final String description;
   final double price;
   final String image;
+  final String? flavor;
 
   @override
   Widget build(BuildContext context) {
@@ -82,6 +84,7 @@ class CategoryItemDetails extends StatelessWidget {
               productName: title,
               productPrice: price,
               description: description,
+              flavor: flavor,
             )
           ],
         ),

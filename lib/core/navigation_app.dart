@@ -34,6 +34,7 @@ class AppNavigator {
     required String productName,
     required double productPrice,
     String description = '',
+    String? flavor,
   }) =>
       MaterialPageRoute(
           builder: (context) => ProductDetailsScreen(
@@ -41,6 +42,7 @@ class AppNavigator {
                 productName: productName,
                 productPrice: productPrice,
                 description: description,
+                flavor: flavor,
               ));
 
   static MaterialPageRoute checkoutScreen() =>

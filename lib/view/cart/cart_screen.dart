@@ -54,6 +54,7 @@ class CartScreen extends StatelessWidget {
                                   totalPrice:
                                       cubit.cItemsCartData[index].totalPrice,
                                   image: cubit.cItemsCartData[index].image,
+                                  flavor: cubit.cItemsCartData[index].flavor, 
                                   totalProducts:
                                       cubit.cItemsCartData[index].totalProducts,
                                   icrement: () => cubit.icrement(index),

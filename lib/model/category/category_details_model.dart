@@ -1,6 +1,6 @@
 import 'package:flowers/core/app_text.dart';
 
-class CategoryDetailsModel{
+class CategoryDetailsModel {
   final String name;
   final List<ItemModel> items;
 
@@ -8,7 +8,6 @@ class CategoryDetailsModel{
     required this.name,
     required this.items,
   });
-
 }
 
 class ItemModel {
@@ -16,8 +15,10 @@ class ItemModel {
   final String image;
   final String description;
   final double price;
+  String? flavor;
 
   ItemModel({
+    this.flavor,
     required this.name,
     required this.image,
     required this.price,

@@ -1,3 +1,23 @@
 {
-    "CodeGPT.apiKey": "CodeGPT Plus Beta"
+    "CodeGPT.apiKey": "CodeGPT Plus Beta",
+    "workbench.colorCustomizations": {
+        "activityBar.activeBackground": "#035b96",
+        "activityBar.background": "#035b96",
+        "activityBar.foreground": "#e7e7e7",
+        "activityBar.inactiveForeground": "#e7e7e799",
+        "activityBarBadge.background": "#fb24a5",
+        "activityBarBadge.foreground": "#e7e7e7",
+        "commandCenter.border": "#e7e7e799",
+        "sash.hoverBorder": "#035b96",
+        "statusBar.background": "#023d64",
+        "statusBar.foreground": "#e7e7e7",
+        "statusBarItem.hoverBackground": "#035b96",
+        "statusBarItem.remoteBackground": "#023d64",
+        "statusBarItem.remoteForeground": "#e7e7e7",
+        "titleBar.activeBackground": "#023d64",
+        "titleBar.activeForeground": "#e7e7e7",
+        "titleBar.inactiveBackground": "#023d6499",
+        "titleBar.inactiveForeground": "#e7e7e799"
+    },
+    "peacock.color": "#023d64"
 }

@@ -16,10 +16,12 @@ class HomeAppBarWidget extends StatelessWidget {
         children: [
           IconButton(
             onPressed: () {
-              Scaffold.of(context).openDrawer();
+              Navigator.of(context).push(
+                AppNavigator.favoriteScreen(),
+              );
             },
             icon: const Icon(
-              Icons.menu,
+              Icons.favorite,
               size: 35,
             ),
           ),

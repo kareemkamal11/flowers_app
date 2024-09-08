@@ -3,19 +3,20 @@ import 'package:flowers/core/app_text.dart';
 import 'package:flutter/material.dart';
 
 class CartDetailsWidget extends StatelessWidget {
-  const CartDetailsWidget({
+  CartDetailsWidget({
     super.key,
     required this.title,
     required this.description,
     required this.priceProduct,
     required this.totalPrice,
+    this.flavor
   });
 
-  // add final variables title and description and priceProduct and totalPrice
   final String title;
   final String description;
   final double priceProduct;
   final double totalPrice;
+  String? flavor;
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +35,12 @@ class CartDetailsWidget extends StatelessWidget {
           overflow: TextOverflow.ellipsis,
         ),
         const SizedBox(height: 20),
+        flavor == null
+            ? const SizedBox()
+            : Text(
+                flavor!,
+                style: AppStyles.robotoStyle,
+              ),
         Text(
           '${AppText.price} $priceProduct ${AppText.currency}',
           style: AppStyles.robotoStyle.copyWith(

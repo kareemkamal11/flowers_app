@@ -14,10 +14,6 @@ class ShowProductsConter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // كيف اخذ اول رقمين من من بعد العلامة العشرية
-    // اولا نحول الرقم الى نص
-    // ثم نقوم بتقسيم النص الى قسمين بواسطة العلامة العشرية
-    // ثم نقوم بتحويل القسم الاول الى رقم
     return Container(
       width: 400,
       height: 70,
