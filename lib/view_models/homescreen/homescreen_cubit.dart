@@ -27,6 +27,12 @@ class HomeScreenCubit extends Cubit<HomeScreenState> {
     emit(FavoriteChanged());
   }
 
+  void removeFavourite(int index) {
+    cListFavourite[index].isFavourite = false;
+    cListFavourite.removeAt(index);
+    emit(FavoriteChanged());
+  }
+
   List<dynamic> resultSearchList = [];
 
   final TextEditingController searchController = TextEditingController();

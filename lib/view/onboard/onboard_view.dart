@@ -49,67 +49,69 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        width: double.infinity,
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage(onboardData[currentIndex].backgroundImage),
-            fit: BoxFit.cover,
+    return SafeArea(
+      child: Scaffold(
+        body: Container(
+          width: double.infinity,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(onboardData[currentIndex].backgroundImage),
+              fit: BoxFit.cover,
+            ),
           ),
-        ),
-        child: Column(
-          children: [
-            Expanded(
-              child: PageView.builder(
-                controller: pageController,
-                itemCount: onboardData.length,
-                onPageChanged: (index) {
-                  setState(() {
-                    currentIndex = index;
-                  });
-                },
-                itemBuilder: (context, index) {
-                  late double topPadding;
-                  if (onboardData[index].title == 'Milkshake') {
-                    topPadding = 240;
-                  } else {
-                    topPadding = MediaQuery.of(context).size.height / 4;
-                  }
-                  return Column(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(top: topPadding),
-                        child: OnBoardingItemWidget(
-                          bodyImage: onboardData[index].bodyImage,
-                          titleText: onboardData[index].title,
+          child: Column(
+            children: [
+              Expanded(
+                child: PageView.builder(
+                  controller: pageController,
+                  itemCount: onboardData.length,
+                  onPageChanged: (index) {
+                    setState(() {
+                      currentIndex = index;
+                    });
+                  },
+                  itemBuilder: (context, index) {
+                    late double topPadding;
+                    if (onboardData[index].title == 'Milkshake') {
+                      topPadding = 240;
+                    } else {
+                      topPadding = MediaQuery.of(context).size.height / 4;
+                    }
+                    return Column(
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.only(top: topPadding),
+                          child: OnBoardingItemWidget(
+                            bodyImage: onboardData[index].bodyImage,
+                            titleText: onboardData[index].title,
+                          ),
                         ),
-                      ),
-                    ],
-                  );
-                },
+                      ],
+                    );
+                  },
+                ),
               ),
-            ),
-            ActionButtonWidget(
-              onTap: nextPage,
-              title: currentIndex == onboardData.length - 1
-                  ? 'Get Started'
-                  : 'Next',
-            ),
-            const SizedBox(height: 15),
-            SmoothPageIndicator(
-              controller: pageController,
-              count: onboardData.length,
-              effect: ExpandingDotsEffect(
-                activeDotColor: AppStyles.mainColor,
-                dotColor: Colors.grey,
-                dotHeight: 10,
-                dotWidth: 10,
-                spacing: 5,
+              ActionButtonWidget(
+                onTap: nextPage,
+                title: currentIndex == onboardData.length - 1
+                    ? 'Get Started'
+                    : 'Next',
               ),
-            ),
-            const SizedBox(height: 150),
-          ],
+              const SizedBox(height: 15),
+              SmoothPageIndicator(
+                controller: pageController,
+                count: onboardData.length,
+                effect: ExpandingDotsEffect(
+                  activeDotColor: AppStyles.mainColor,
+                  dotColor: Colors.grey,
+                  dotHeight: 10,
+                  dotWidth: 10,
+                  spacing: 5,
+                ),
+              ),
+              const SizedBox(height: 150),
+            ],
+          ),
         ),
       ),
     );

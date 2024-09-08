@@ -33,21 +33,23 @@ class _SplashViewState extends State<SplashView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: Container(
-      alignment: Alignment.center,
-      decoration: const BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage(AssetsUtil.splashImage),
-          fit: BoxFit.cover,
+    return SafeArea(
+      child: Scaffold(
+          body: Container(
+        alignment: Alignment.center,
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(AssetsUtil.splashImage),
+            fit: BoxFit.cover,
+          ),
         ),
-      ),
-      child: Image.asset(
-        AssetsUtil.logoImage,
-        width: 200,
-        height: 200,
-      ),
-    ));
+        child: Image.asset(
+          AssetsUtil.logoImage,
+          width: 200,
+          height: 200,
+        ),
+      )),
+    );
   }
 }
 

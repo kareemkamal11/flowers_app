@@ -45,56 +45,58 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
-    return Scaffold(
-      backgroundColor: AppStyles.secondaryColor,
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            ProductDetailsAppBar(
-              screenHeight,
-              image: widget.image,
-            ),
-            ProductDetailsBuyWidget(
-              screenHeight,
-              productName: widget.productName,
-              productPrice: widget.productPrice,
-              flavor: widget.flavor,
-              productsCounter: counter,
-              description: widget.description,
-              addProduct: () {
-                setState(() {
-                  counter++;
-                  totalProducts++;
-                  totalPrice = widget.productPrice *
-                      counter; 
-                });
-              },
-              removeProduct: () {
-                setState(() {
-                  if (counter > 1) {
-                    counter--;
-                    totalProducts--;
-                    totalPrice = widget.productPrice * counter;
-                  }
-                });
-              },
-              totalPrice: totalPrice,
-              totalProducts: totalProducts,
-              buyProduct: () {
-                BlocProvider.of<CartCubit>(context).addItem(
-                  CartItemModel(
-                      title: widget.productName,
-                      price: widget.productPrice,
-                      description: widget.description,
-                      image: widget.image,
-                      totalProducts: totalProducts,
-                      totalPrice: totalPrice),
-                );
-                Navigator.of(context)
-                    .pushReplacement(AppNavigator.cartScreen());
-              },
-            )
-          ],
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: AppStyles.secondaryColor,
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              ProductDetailsAppBar(
+                screenHeight,
+                image: widget.image,
+              ),
+              ProductDetailsBuyWidget(
+                screenHeight,
+                productName: widget.productName,
+                productPrice: widget.productPrice,
+                flavor: widget.flavor,
+                productsCounter: counter,
+                description: widget.description,
+                addProduct: () {
+                  setState(() {
+                    counter++;
+                    totalProducts++;
+                    totalPrice = widget.productPrice *
+                        counter; 
+                  });
+                },
+                removeProduct: () {
+                  setState(() {
+                    if (counter > 1) {
+                      counter--;
+                      totalProducts--;
+                      totalPrice = widget.productPrice * counter;
+                    }
+                  });
+                },
+                totalPrice: totalPrice,
+                totalProducts: totalProducts,
+                buyProduct: () {
+                  BlocProvider.of<CartCubit>(context).addItem(
+                    CartItemModel(
+                        title: widget.productName,
+                        price: widget.productPrice,
+                        description: widget.description,
+                        image: widget.image,
+                        totalProducts: totalProducts,
+                        totalPrice: totalPrice),
+                  );
+                  Navigator.of(context)
+                      .pushReplacement(AppNavigator.cartScreen());
+                },
+              )
+            ],
+          ),
         ),
       ),
     );

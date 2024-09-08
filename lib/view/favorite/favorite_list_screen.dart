@@ -12,41 +12,48 @@ class FavoriteListScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: CustomScrollView(
-        physics: const BouncingScrollPhysics(),
-        slivers: [
-          SliverToBoxAdapter(
-              child: CustomAppBarWidget(title: AppText.favorite)),
-          BlocBuilder<HomeScreenCubit, HomeScreenState>(
-            builder: (context, state) {
-              var cubit = BlocProvider.of<HomeScreenCubit>(context);
-              return SliverGrid.builder(
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                ),
-                itemCount: cubit.cListFavourite.length,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 10, vertical: 10),
-                    child: ItemSellingWidget(
-                      favoriteClick: () {
-                        cubit.updateFavourite(index);
+    return BlocBuilder<HomeScreenCubit, HomeScreenState>(
+      builder: (context, state) {
+        return SafeArea(
+          child: Scaffold(
+            body: CustomScrollView(
+              physics: const BouncingScrollPhysics(),
+              slivers: [
+                SliverToBoxAdapter(
+                    child: CustomAppBarWidget(title: AppText.favorite)),
+                BlocBuilder<HomeScreenCubit, HomeScreenState>(
+                  builder: (context, state) {
+                    var cubit = BlocProvider.of<HomeScreenCubit>(context);
+                    return SliverGrid.builder(
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                      ),
+                      itemCount: cubit.cListFavourite.length,
+                      itemBuilder: (context, index) {
+                        return Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 10, vertical: 10),
+                          child: ItemSellingWidget(
+                            favoriteClick: () {
+                              cubit.removeFavourite(index);
+                            },
+                            title: cubit.cListFavourite[index].name,
+                            image: cubit.cListFavourite[index].image,
+                            price: cubit.cListFavourite[index].price,
+                            flavor: cubit.cListFavourite[index].flavor,
+                            isFavorite: cubit.cListFavourite[index].isFavourite,
+                          ),
+                        );
                       },
-                      title: cubit.cListFavourite[index].name,
-                      image: cubit.cListFavourite[index].image,
-                      price: cubit.cListFavourite[index].price,
-                      flavor: cubit.cListFavourite[index].flavor,
-                      isFavorite: cubit.cListFavourite[index].isFavourite,
-                    ),
-                  );
-                },
-              );
-            },
-          )
-        ],
-      ),
+                    );
+                  },
+                )
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 }
