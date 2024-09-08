@@ -60,7 +60,9 @@ class SearchFieldWidget extends StatelessWidget {
       controller: searchController,
       onSubmitted: (value) => onSearchTapped, //
       onChanged: (value) => onSaved(value),
+      onTapOutside: (event) =>  FocusManager.instance.primaryFocus?.unfocus(),
       decoration: InputDecoration(
+        
         hintText: hintText,
         hintStyle: AppStyles.hintStyle.copyWith(fontSize: 15),
         suffixIcon: suffinxIcon,
