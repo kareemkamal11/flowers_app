@@ -1,4 +1,3 @@
-
 import 'package:flowers/model/best_selling/best_selling_data.dart';
 import 'package:flowers/model/best_selling/best_selling_model.dart';
 import 'package:flowers/model/best_selling/favorite_best_selling.dart';
@@ -36,6 +35,9 @@ class HomeScreenCubit extends Cubit<HomeScreenState> {
 
   onSaved(String value) {
     searchWord = value.trim();
+    if (searchWord.isEmpty) {
+      removeWord();
+    }
     emit(SearchHomeScreen());
   }
 
@@ -43,14 +45,18 @@ class HomeScreenCubit extends Cubit<HomeScreenState> {
     searchWord = "";
     searchController.clear();
     resultSearchList.clear();
+    actionSearch = false;
     emit(SearchHomeScreen());
   }
+
+  bool actionSearch = false;
 
   void searchAction() {
     if (searchWord.trim().isNotEmpty) {
       resultSearchList.clear();
       appSearch(searchWord);
-    } 
+      actionSearch = true;
+    }
     emit(SearchHomeScreen());
   }
 
@@ -60,7 +66,7 @@ class HomeScreenCubit extends Cubit<HomeScreenState> {
     }
     List<dynamic> combinedList = [
       ...bestSellingData,
-      ...milkshakeItem, 
+      ...milkshakeItem,
       ...cafeConLecheItem,
       ...espressoItem,
       ...foodItem
@@ -82,5 +88,3 @@ class HomeScreenCubit extends Cubit<HomeScreenState> {
     return super.close();
   }
 }
-
-

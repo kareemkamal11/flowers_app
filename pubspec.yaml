@@ -115,6 +115,7 @@ flutter:
     - assets/image/Oreo Milkshake.png
     - assets/Search.png
     - assets/cart_empty.json
+    - assets/searchEmpty.json
 
 
 

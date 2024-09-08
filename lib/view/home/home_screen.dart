@@ -5,8 +5,8 @@ import 'package:flowers/core/app_styles.dart';
 import 'package:flowers/core/app_text.dart';
 import 'package:flowers/model/category/discovery_category/discovery_category_model.dart';
 import 'package:flowers/view/utils/app_search_widget.dart';
-import 'package:flowers/view/utils/list_search_widget.dart';
-import 'package:flowers/view/utils/search_item_widget.dart';
+import 'package:flowers/view/home/widgets/list_search_widget.dart';
+import 'package:flowers/view/utils/search_not_found.dart';
 import 'package:flowers/view_models/homescreen/homescreen_cubit.dart';
 import 'package:flowers/view_models/homescreen/homescreen_state.dart';
 import 'package:flutter/material.dart';
@@ -39,15 +39,6 @@ class HomeScreen extends StatelessWidget {
                           ),
                         );
                       }
-                      if (cubit.searchWord.isNotEmpty &&
-                          cubit.resultSearchList.isEmpty) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            backgroundColor: Colors.red,
-                            content: AppText.noResults(cubit.searchWord),
-                          ),
-                        );
-                      }
                     }
         return Scaffold(
           body: SingleChildScrollView(
@@ -71,14 +62,15 @@ class HomeScreen extends StatelessWidget {
                     hintText: AppText.hintSearch,
                   ),
                   const SizedBox(height: 10),
-                  if (cubit.searchWord.isNotEmpty &&
-                      cubit.resultSearchList.isNotEmpty)
-                    ListSearchWidget(searchList: cubit.resultSearchList)
+                  if (cubit.searchWord.isNotEmpty && cubit.actionSearch) 
+                    (cubit.resultSearchList.isEmpty && cubit.actionSearch) 
+                    ? SearchNotFound(searchWord: cubit.searchWord)
+                    : ListSearchWidget(searchList: cubit.resultSearchList)
                   else
                     BottomHomeWidget(
                       list: cubit.cListDiscoveryCategory,
                     ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 30),
                 ],
               ),
             ),

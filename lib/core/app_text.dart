@@ -49,7 +49,7 @@ class AppText {
   static const String foodText = "Food";
   static const String total = "Total";
   static const String searchEmpty =
-      "Search is empty, please enter a word to search";
+      "Search Word can't be empty, please enter a word to search";
 
   static const String milkshake = 'Milkshake';
   static const String addtoCart = 'Add to cart';
