@@ -38,7 +38,7 @@ class FavoriteListScreen extends StatelessWidget {
                             itemBuilder: (context, index) {
                               return Padding(
                                 padding: const EdgeInsets.only(
-                                    top: 20, left: 25, right: 25, bottom: 20),
+                                    top: 20, left: 15, right: 15),
                                 child: ItemSellingWidget(
                                   favoriteClick: () {
                                     cubit.removeFavourite(index);
